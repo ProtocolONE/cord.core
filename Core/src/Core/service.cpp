@@ -36,7 +36,7 @@ namespace GGS {
       return *this;
     }
 
-    void Service::setId( const QString &id )
+    void Service::setId(const QString &id)
     {
       this->_id = id;
     }
@@ -46,7 +46,7 @@ namespace GGS {
       return this->_id;
     }
 
-    void Service::setGameId( const QString &gameId )
+    void Service::setGameId(const QString &gameId)
     {
       this->_gameId = gameId;
     }
@@ -56,7 +56,7 @@ namespace GGS {
       return this->_gameId;
     }
 
-    void Service::setName( const QString &name )
+    void Service::setName(const QString &name)
     {
       this->_name = name;
     }
@@ -66,7 +66,7 @@ namespace GGS {
       return this->_name;
     }
 
-    void Service::setUrl( const QUrl &url )
+    void Service::setUrl(const QUrl &url)
     {
       this->_url = url;
     }
@@ -86,7 +86,7 @@ namespace GGS {
       return this->_torrentUrl;
     }
 
-    void Service::setArea( Area area )
+    void Service::setArea(Area area)
     {
       this->_area = area;
     }
