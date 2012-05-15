@@ -57,6 +57,11 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>qtmaind.lib;gtestd.lib;QtCored4.lib;CoreX86d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y /I /R "$(ProjectDir)\fixtures" "$(TargetDir)\fixtures"
+echo "$(ProjectDir)\fixtures" "$(TargetDir)\fixtures"
+xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -74,9 +79,17 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalDependencies>qtmain.lib;gtest.lib;QtCore4.lib;CoreX86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y /I /R "$(ProjectDir)\fixtures" "$(TargetDir)\fixtures"
+xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ShortCutTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fixtures\System\Shell\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

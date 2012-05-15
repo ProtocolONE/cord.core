@@ -13,8 +13,3 @@ int main(int argc, char *argv[])
     int r = RUN_ALL_TESTS();
     return r;
 }
-
-TEST(EMPTY, EMPTY)
-{
-  ASSERT_TRUE(true);
-}

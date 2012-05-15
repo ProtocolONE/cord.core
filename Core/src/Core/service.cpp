@@ -17,7 +17,7 @@ namespace GGS {
       , _area(service._area)
       , _torrentFilePath(service._torrentFilePath)
       , _downloadPath(service._downloadPath)
-      , _extractionPath(service._extractionPath)
+      , _installPath(service._installPath)
       , _extractorType(service._extractorType) //UNDONE
     {
     }
@@ -116,14 +116,14 @@ namespace GGS {
       return this->_downloadPath;
     }
 
-    void Service::setExtractionPath(const QString& directory)
+    void Service::setInstallPath(const QString& directory)
     {
-      this->_extractionPath = directory;
+      this->_installPath = directory;
     }
 
-    const QString& Service::extractionPath() const
+    const QString& Service::installPath() const
     {
-      return this->_extractionPath;
+      return this->_installPath;
     }
 
     void Service::setExtractorType(const QString& type)
@@ -150,5 +150,39 @@ namespace GGS {
       area.append("/");
       return this->_torrentUrl.resolved(QUrl(area));
     }
+
+    QString Service::areaString() const
+    {
+      switch(this->_area){
+       case GGS::Core::Service::Pts:
+        return QString("pts");
+       case GGS::Core::Service::Tst:
+        return QString("tst");
+       case GGS::Core::Service::Live: // не с проста пропущен break
+       default:
+         return QString("live");
+      };
+    }
+
+    void Service::setIsDownloadable(bool isDownloadable)
+    {
+      this->_isDownloadable = isDownloadable;
+    }
+
+    bool Service::isDownloadable() const
+    {
+      return this->_isDownloadable;
+    }
+
+    bool Service::hashDownloadPath() const
+    {
+      return this->_hashDownloadPath;
+    }
+
+    void Service::setHashDownloadPath(bool hashDownloadPath)
+    {
+      this->_hashDownloadPath = hashDownloadPath;
+    }
+
   }
 }

@@ -47,6 +47,9 @@
     <ClInclude Include="include\Core\Locator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Core\System\Shell\ShortCut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Core.rc" />
@@ -62,6 +65,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\Locator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\System\Shell\ShortCut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
