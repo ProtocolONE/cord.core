@@ -126,21 +126,19 @@ namespace GGS{
         bool ShortCut::internalSave(const QString &pathToLnkFile)
         {
           CComPtr<IShellLink> pShellLink;    
-          CHECK_HRESULT(CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, (LPVOID*) &pShellLink))
-          CHECK_HRESULT(pShellLink->SetPath(reinterpret_cast<const wchar_t *>(this->_path.utf16()))) 
-          CHECK_HRESULT(pShellLink->SetWorkingDirectory(reinterpret_cast<const wchar_t *>(this->_workingDir.utf16())))
-          CHECK_HRESULT(pShellLink->SetArguments(reinterpret_cast<const wchar_t *>(this->_args.utf16())))
-          CHECK_HRESULT(pShellLink->SetDescription(reinterpret_cast<const wchar_t *>(this->_description.utf16())))
-          CHECK_HRESULT(pShellLink->SetShowCmd(static_cast<int>(this->_cmd)))
-
-          LPCWSTR iconLocation = reinterpret_cast<const wchar_t *>(this->_iconLocation.utf16());
-          CHECK_HRESULT(pShellLink->SetIconLocation(iconLocation, this->_iconIndex))
+          CHECK_HRESULT(CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, reinterpret_cast<LPVOID*>(&pShellLink)))
+          CHECK_HRESULT(pShellLink->SetPath(this->_path.utf16())) 
+          CHECK_HRESULT(pShellLink->SetWorkingDirectory(this->_workingDir.utf16()))
+          CHECK_HRESULT(pShellLink->SetArguments(this->_args.utf16()))
+          CHECK_HRESULT(pShellLink->SetDescription(this->_description.utf16()))
+          CHECK_HRESULT(pShellLink->SetShowCmd(this->_cmd))
+          CHECK_HRESULT(pShellLink->SetIconLocation(this->_iconLocation.utf16(), this->_iconIndex))
 
           CComPtr<IPersistFile> pPersistFile;          
-          CHECK_HRESULT(pShellLink->QueryInterface(IID_IPersistFile, (LPVOID*) &pPersistFile)) 
+          CHECK_HRESULT(pShellLink->QueryInterface(IID_IPersistFile, reinterpret_cast<LPVOID*>(&pPersistFile))) 
           
           //http://msdn.microsoft.com/en-us/library/windows/desktop/ms693701(v=vs.85).aspx
-          CHECK_HRESULT(pPersistFile->Save(reinterpret_cast<const wchar_t *>(pathToLnkFile.utf16()), TRUE))
+          CHECK_HRESULT(pPersistFile->Save(pathToLnkFile.utf16(), TRUE))
           return true;
         }
 
@@ -164,21 +162,21 @@ namespace GGS{
 
           CComPtr<IPersistFile> pPersistFile;          
           CHECK_HRESULT(pShellLink->QueryInterface(IID_IPersistFile, (LPVOID*) &pPersistFile)) 
-          CHECK_HRESULT(pPersistFile->Load(reinterpret_cast<const wchar_t *>(pathToLnkFile.utf16()),STGM_READ))
+          CHECK_HRESULT(pPersistFile->Load(pathToLnkFile.utf16(), STGM_READ))
 
           //»спользуем INFOTIPSIZE вместо MAX_PATH т.к. это максимально возможна€ строка при работе с €рлыком
           QScopedPointer<wchar_t> buffer(new wchar_t[INFOTIPSIZE]);
 
-          CHECK_HRESULT(pShellLink->GetPath(static_cast<LPWSTR>(buffer.data()), INFOTIPSIZE, NULL, SLGP_RAWPATH))
+          CHECK_HRESULT(pShellLink->GetPath(buffer.data(), INFOTIPSIZE, NULL, SLGP_RAWPATH))
           this->_path = QString::fromWCharArray(buffer.data());
                              
-          CHECK_HRESULT(pShellLink->GetWorkingDirectory(static_cast<LPWSTR>(buffer.data()), INFOTIPSIZE))
+          CHECK_HRESULT(pShellLink->GetWorkingDirectory(buffer.data(), INFOTIPSIZE))
           this->_workingDir = QString::fromWCharArray(buffer.data());
             
-          CHECK_HRESULT(pShellLink->GetArguments(static_cast<LPWSTR>(buffer.data()), INFOTIPSIZE))
+          CHECK_HRESULT(pShellLink->GetArguments(buffer.data(), INFOTIPSIZE))
           this->_args = QString::fromWCharArray(buffer.data());
 
-          CHECK_HRESULT(pShellLink->GetDescription(static_cast<LPWSTR>(buffer.data()), INFOTIPSIZE))
+          CHECK_HRESULT(pShellLink->GetDescription(buffer.data(), INFOTIPSIZE))
           this->_description = QString::fromWCharArray(buffer.data());
 
           int value = 0;  
@@ -192,7 +190,7 @@ namespace GGS{
               return false;
           }
           
-          CHECK_HRESULT(pShellLink->GetIconLocation(static_cast<LPWSTR>(buffer.data()), INFOTIPSIZE, &this->_iconIndex))
+          CHECK_HRESULT(pShellLink->GetIconLocation(buffer.data(), INFOTIPSIZE, &this->_iconIndex))
           this->_iconLocation = QString::fromWCharArray(buffer.data());
 
           return true;
