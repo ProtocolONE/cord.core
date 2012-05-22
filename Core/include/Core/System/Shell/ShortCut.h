@@ -71,8 +71,8 @@ namespace GGS{
 
           bool load(const QString &pathToLnkFile);
         private:
-          bool internalSave(const QString & pathToLnkFile);
-          bool internalLoad(const QString & pathToLnkFile);
+          bool internalSave(const QString &pathToLnkFile);
+          bool internalLoad(const QString &pathToLnkFile);
           QString _path;
           QString _workingDir;
           QString _args;
