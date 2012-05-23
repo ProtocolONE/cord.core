@@ -110,6 +110,25 @@ namespace GGS {
       */
       void setHashDownloadPath(bool hashDownloadPath);
 
+
+      /*!
+        \fn bool Service::isDefaultInstallPath() const;
+        \brief Возвращает true, если пользователь не менял папку для установки ни разу, иначе false.
+        \author Ilya.Tkachenko
+        \date 23.05.2012
+        \return true if default install path, false if not.
+      */
+      bool isDefaultInstallPath() const;
+
+      /*!
+        \fn void Service::setIsDefaultInstallPath(bool isDefaultInstallPath);
+        \brief Задает менял ли папку для установки игры пользовател. Если менял то true, иначе false.
+        \author Ilya.Tkachenko
+        \date 23.05.2012
+        \param isDefaultInstallPath true if is default install path.
+      */
+      void setIsDefaultInstallPath(bool isDefaultInstallPath);
+
     private:
       QString _id;
       QString _gameId;
@@ -123,6 +142,8 @@ namespace GGS {
       QString _extractorType;
       bool _isDownloadable;
       bool _hashDownloadPath;
+      
+      bool _isDefaultInstallPath;
     };
   }
 }

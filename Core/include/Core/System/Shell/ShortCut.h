@@ -68,8 +68,8 @@ namespace GGS{
           int iconIndex() const;
 
           bool save(const QString &pathToLnkFile);
-
           bool load(const QString &pathToLnkFile);
+
         private:
           bool internalSave(const QString &pathToLnkFile);
           bool internalLoad(const QString &pathToLnkFile);

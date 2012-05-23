@@ -29,7 +29,7 @@ namespace GGS{
           this->_path = path;
         }
 
-        const QString & ShortCut::path() const
+        const QString& ShortCut::path() const
         {
           return this->_path;
         }
@@ -39,7 +39,7 @@ namespace GGS{
           this->_workingDir = workingDir;
         }
 
-        const QString & ShortCut::workingDirectory() const
+        const QString& ShortCut::workingDirectory() const
         {
           return this->_workingDir;
         }
@@ -49,7 +49,7 @@ namespace GGS{
           this->_args = args;
         }
 
-        const QString & ShortCut::arguments() const
+        const QString& ShortCut::arguments() const
         {
           return this->_args;
         }
@@ -59,7 +59,7 @@ namespace GGS{
           this->_description = description;
         }
 
-        const QString & ShortCut::description() const
+        const QString& ShortCut::description() const
         {
           return this->_description;
         }
@@ -79,7 +79,7 @@ namespace GGS{
           this->_iconLocation = iconLocation;
         }
 
-        const QString & ShortCut::iconLocation() const
+        const QString& ShortCut::iconLocation() const
         {
           return this->_iconLocation;
         }

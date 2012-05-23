@@ -1,5 +1,6 @@
 #include <Core/service.h>
-#include <QDebug>
+#include <QtCore/QDir>
+#include <QtCore/QDebug>
 
 namespace GGS {
   namespace Core {
@@ -14,11 +15,14 @@ namespace GGS {
       , _name(service._name)
       , _url(service._url)
       , _torrentUrl(service._torrentUrl)
-      , _area(service._area)
       , _torrentFilePath(service._torrentFilePath)
+      , _area(service._area)
       , _downloadPath(service._downloadPath)
       , _installPath(service._installPath)
-      , _extractorType(service._extractorType) //UNDONE
+      , _extractorType(service._extractorType)
+      , _isDownloadable(service._isDownloadable)
+      , _hashDownloadPath(service._hashDownloadPath)
+      , _isDefaultInstallPath(service._isDefaultInstallPath) //UNDONE
     {
     }
     
@@ -26,12 +30,21 @@ namespace GGS {
     {
     }
 
-    Service &Service::operator=(const Service &service)
+    Service& Service::operator=(const Service &service)
     {
-      this->_id = service._id;
-      this->_gameId = service._gameId;
-      this->_name =service._name;
-      this->_url = service._url;
+      this->_id                   = service._id;
+      this->_gameId               = service._gameId;
+      this->_name                 = service._name;
+      this->_url                  = service._url;
+      this->_torrentUrl           = service._torrentUrl;
+      this->_torrentFilePath      = service._torrentFilePath;
+      this->_area                 = service._area;
+      this->_downloadPath         = service._downloadPath;
+      this->_installPath          = service._installPath;
+      this->_extractorType        = service._extractorType;
+      this->_isDownloadable       = service._isDownloadable;
+      this->_hashDownloadPath     = service._hashDownloadPath;
+      this->_isDefaultInstallPath = service._isDefaultInstallPath;
 
       return *this;
     }
@@ -41,7 +54,7 @@ namespace GGS {
       this->_id = id;
     }
 
-    const QString & Service::id() const
+    const QString& Service::id() const
     {
       return this->_id;
     }
@@ -51,7 +64,7 @@ namespace GGS {
       this->_gameId = gameId;
     }
 
-    const QString & Service::gameId() const
+    const QString& Service::gameId() const
     {
       return this->_gameId;
     }
@@ -61,7 +74,7 @@ namespace GGS {
       this->_name = name;
     }
 
-    const QString & Service::name() const
+    const QString& Service::name() const
     {
       return this->_name;
     }
@@ -71,7 +84,7 @@ namespace GGS {
       this->_url = url;
     }
 
-    const QUrl & Service::url() const
+    const QUrl& Service::url() const
     {
       return this->_url;
     }
@@ -98,7 +111,7 @@ namespace GGS {
 
     void Service::setTorrentFilePath(const QString& filePath)
     {
-      this->_torrentFilePath = filePath;
+      this->_torrentFilePath = QDir::cleanPath(filePath);
     }
 
     const QString& Service::torrentFilePath() const
@@ -108,7 +121,7 @@ namespace GGS {
 
     void Service::setDownloadPath(const QString& dir)
     {
-      this->_downloadPath = dir;
+      this->_downloadPath = QDir::cleanPath(dir);
     }
 
     const QString& Service::downloadPath() const
@@ -118,7 +131,7 @@ namespace GGS {
 
     void Service::setInstallPath(const QString& directory)
     {
-      this->_installPath = directory;
+      this->_installPath = QDir::cleanPath(directory);
     }
 
     const QString& Service::installPath() const
@@ -138,15 +151,7 @@ namespace GGS {
 
     const QUrl Service::torrentUrlWithArea() const
     {
-      QString area;
-      if (Live == this->_area) {
-        area = "live";
-      } else if (Pts == this->_area) {
-        area = "pts";
-      } else {
-        area = "tst";
-      }
-
+      QString area = this->areaString();
       area.append("/");
       return this->_torrentUrl.resolved(QUrl(area));
     }
@@ -182,6 +187,16 @@ namespace GGS {
     void Service::setHashDownloadPath(bool hashDownloadPath)
     {
       this->_hashDownloadPath = hashDownloadPath;
+    }
+
+    bool Service::isDefaultInstallPath() const
+    {
+      return this->_isDefaultInstallPath;
+    }
+
+    void Service::setIsDefaultInstallPath(bool isDefaultInstallPath)
+    {
+      this->_isDefaultInstallPath = isDefaultInstallPath;
     }
 
   }
