@@ -1,4 +1,4 @@
-#ifndef _GGS_CORE_SERVICE_H
+﻿#ifndef _GGS_CORE_SERVICE_H
 #define _GGS_CORE_SERVICE_H
 
 #include <Core/core_global.h>
@@ -129,6 +129,26 @@ namespace GGS {
       */
       void setIsDefaultInstallPath(bool isDefaultInstallPath);
 
+
+      /*!
+        \fn const QString& Service::externalDependencyList() const;
+        \brief Возвращает строку, в которой через разделитель перечислены имена ехе запускаем после установки игры.
+        \author Ilya.Tkachenko
+        \date 24.05.2012
+        \return .
+      */
+      const QString& externalDependencyList() const;
+
+
+      /*!
+        \fn void Service::setExternalDependencyList(const QString& externalDependencyList);
+        \brief Задает список зависимостей игры.
+        \author Ilya.Tkachenko
+        \date 24.05.2012
+        \param externalDependencyList List of external dependencies.
+      */
+      void setExternalDependencyList(const QString& externalDependencyList);
+
     private:
       QString _id;
       QString _gameId;
@@ -142,8 +162,8 @@ namespace GGS {
       QString _extractorType;
       bool _isDownloadable;
       bool _hashDownloadPath;
-      
       bool _isDefaultInstallPath;
+      QString _externalDependencyList;
     };
   }
 }

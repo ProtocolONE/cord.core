@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+﻿#include <gtest/gtest.h>
 #include <QtCore/QCoreApplication>
 
 #ifdef VLD_CHECK_ENABLED

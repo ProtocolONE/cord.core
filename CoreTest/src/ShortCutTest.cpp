@@ -1,4 +1,4 @@
-#include <Core/System/Shell/ShortCut.h>
+п»ї#include <Core/System/Shell/ShortCut.h>
 
 #include <QtCore/QString>
 #include <QtCore/QFile>
@@ -7,10 +7,10 @@
 #include <gtest/gtest.h>
 #include <windows.h>
 
-#define ARGS QString::fromUtf16(L"arg1 arg2 arg3 русский")
-#define DESCRIPTION QString::fromUtf16(L"the description на русском")
-#define WORKINGDIR QString::fromUtf16(L"x:\\mega pa th\\с русскими\\буквами")
-#define PATH QString::fromUtf16(L"c:\\русский\\megafile.xpp")
+#define ARGS QString::fromUtf16(L"arg1 arg2 arg3 СЂСѓСЃСЃРєРёР№")
+#define DESCRIPTION QString::fromUtf16(L"the description РЅР° СЂСѓСЃСЃРєРѕРј")
+#define WORKINGDIR QString::fromUtf16(L"x:\\mega pa th\\СЃ СЂСѓСЃСЃРєРёРјРё\\Р±СѓРєРІР°РјРё")
+#define PATH QString::fromUtf16(L"c:\\СЂСѓСЃСЃРєРёР№\\megafile.xpp")
 
 TEST(ShortCutTest, SaveLoad)
 {

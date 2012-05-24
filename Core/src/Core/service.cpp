@@ -199,5 +199,15 @@ namespace GGS {
       this->_isDefaultInstallPath = isDefaultInstallPath;
     }
 
+    const QString& Service::externalDependencyList() const
+    {
+      return this->_externalDependencyList;
+    }
+
+    void Service::setExternalDependencyList(const QString& externalDependencyList)
+    {
+      this->_externalDependencyList = externalDependencyList;
+    }
+
   }
 }
