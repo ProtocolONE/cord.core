@@ -93,6 +93,9 @@
     <ClCompile Include="src\Core\UI\MessageAdapter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="include\Core\service.h">

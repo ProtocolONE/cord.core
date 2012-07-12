@@ -22,7 +22,8 @@ namespace GGS {
       , _extractorType(service._extractorType)
       , _isDownloadable(service._isDownloadable)
       , _hashDownloadPath(service._hashDownloadPath)
-      , _isDefaultInstallPath(service._isDefaultInstallPath) //UNDONE
+      , _isDefaultInstallPath(service._isDefaultInstallPath)
+      , _externalDependencyList(service._externalDependencyList) //UNDONE
     {
     }
     
@@ -32,6 +33,9 @@ namespace GGS {
 
     Service& Service::operator=(const Service &service)
     {
+      if (this == &service)      // Same object?
+        return *this; 
+
       this->_id                   = service._id;
       this->_gameId               = service._gameId;
       this->_name                 = service._name;
@@ -45,6 +49,7 @@ namespace GGS {
       this->_isDownloadable       = service._isDownloadable;
       this->_hashDownloadPath     = service._hashDownloadPath;
       this->_isDefaultInstallPath = service._isDefaultInstallPath;
+      this->_externalDependencyList = service._externalDependencyList;
 
       return *this;
     }

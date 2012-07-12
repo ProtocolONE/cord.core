@@ -28,9 +28,17 @@ namespace GGS{
         MessageAdapter(QObject *parent = 0);
         ~MessageAdapter();
 
-        public slots:
-          virtual void show(const QString& title, const QString& text, Message::StandardButtons buttons, Message::Icon icon, int messageId, QObject* reciever, const char* member) = 0;
-          Message::StandardButton buttonClicked(int messageId);
+      public slots:
+        virtual void show(
+          const QString& title, 
+          const QString& text, 
+          GGS::Core::UI::Message::StandardButtons buttons, 
+          GGS::Core::UI::Message::Icon icon, 
+          int messageId, 
+          QObject* reciever, 
+          const char* member) = 0;
+
+        GGS::Core::UI::Message::StandardButton buttonClicked(int messageId);
 
       protected:
         QMap<int, Message::StandardButton> _returnButtons;

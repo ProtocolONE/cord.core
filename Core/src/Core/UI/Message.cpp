@@ -80,7 +80,7 @@ namespace GGS{
         this->_icon = icon;
       }
 
-      Message::StandardButtons Message::buttons() const
+      GGS::Core::UI::Message::StandardButtons Message::buttons() const
       {
         return this->_buttons;
       }

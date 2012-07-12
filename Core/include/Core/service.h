@@ -23,7 +23,7 @@ namespace GGS {
       };
 
       explicit Service(const Service &service);
-      Service(QObject *parent = 0);
+      explicit Service(QObject *parent = 0);
       ~Service();
 
       Service &operator = (const Service &);

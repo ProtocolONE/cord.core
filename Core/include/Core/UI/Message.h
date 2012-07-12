@@ -55,7 +55,7 @@ namespace GGS{
           RestoreDefaults    = 0x08000000
         };
 
-        Q_DECLARE_FLAGS(StandardButtons, StandardButton)
+        Q_DECLARE_FLAGS(GGS::Core::UI::Message::StandardButtons, GGS::Core::UI::Message::StandardButton)
 
         explicit Message(QObject *parent = 0);
         Message(Icon icon, const QString& title, const QString& text, StandardButtons buttons = NoButton, QObject *parent = 0);
