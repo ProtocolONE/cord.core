@@ -100,6 +100,7 @@ xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MessageAdapterMock.cpp" />
     <ClCompile Include="src\MessageTest.cpp" />
+    <ClCompile Include="src\RegistryKeyTest.cpp" />
     <ClCompile Include="src\ShortCutTest.cpp" />
     <ClCompile Include="src\TestEventLoopFinisher.cpp" />
   </ItemGroup>
