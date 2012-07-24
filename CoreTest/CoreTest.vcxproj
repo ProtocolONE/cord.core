@@ -97,6 +97,7 @@ xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)
     <ClCompile Include="GeneratedFiles\Release\moc_TestEventLoopFinisher.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="src\HardwareIdTest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MessageAdapterMock.cpp" />
     <ClCompile Include="src\MessageTest.cpp" />

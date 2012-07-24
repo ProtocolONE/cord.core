@@ -58,6 +58,9 @@
     <ClInclude Include="include\Core\System\Registry\RegistryKey.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Core\System\HardwareId.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Core.rc" />
@@ -100,6 +103,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\System\Registry\RegistryKey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\System\HardwareId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

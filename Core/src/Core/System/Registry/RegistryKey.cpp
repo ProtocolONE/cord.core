@@ -26,9 +26,9 @@ namespace GGS{
           case HKLM:
             rootKey = HKEY_LOCAL_MACHINE;
             break;
-            default:
-              DEBUG_LOG << "Unsupported hive" << hive;
-              return;
+          default:
+            DEBUG_LOG << "Unsupported hive" << hive;
+            return;
           }
 
           wchar_t *tmp = new wchar_t[key.size() + 1];
