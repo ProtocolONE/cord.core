@@ -1,5 +1,6 @@
 #include <Core/Service>
 #include <Core/UI/Message>
+#include <Core/Marketing.h>
 
 #include <Windows.h>
 #include <QtCore/QMetaType>
@@ -9,6 +10,7 @@ void registerTypes()
   qRegisterMetaType<GGS::Core::Service>("GGS::Core::Service");
   qRegisterMetaType<GGS::Core::UI::Message::StandardButtons>("GGS::Core::UI::Message::StandardButtons");
   qRegisterMetaType<GGS::Core::UI::Message::Icon>("GGS::Core::UI::Message::Icon");
+  qRegisterMetaType<GGS::Core::Marketing::MarketingTargets>("GGS::Core::Marketing::MarketingTargets");
 }
 
 BOOL WINAPI DllMain(

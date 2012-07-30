@@ -101,6 +101,7 @@ xcopy /Y /I /R /E "$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\bin\*.dll
     </ClCompile>
     <ClCompile Include="src\HardwareIdTest.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MarketingTest.cpp" />
     <ClCompile Include="src\MessageAdapterMock.cpp" />
     <ClCompile Include="src\MessageTest.cpp" />
     <ClCompile Include="src\RegistryKeyTest.cpp" />
