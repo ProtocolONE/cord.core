@@ -19,7 +19,7 @@ namespace GGS {
     QMutex Marketing::_mutex;
     QString Marketing::_nullId = "0";
 
-    Marketing::Marketing()
+    Marketing::Marketing(QObject* parent) : QObject(parent)
     {
     }
 

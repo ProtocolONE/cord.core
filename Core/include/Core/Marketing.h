@@ -24,10 +24,11 @@ namespace GGS {
     class CORE_EXPORT Marketing : public QObject
     {
       Q_OBJECT
-      Q_ENUMS(GGS::Core::Marketing::MarketingTargets)
+      Q_ENUMS(MarketingTarget)
+      Q_FLAGS(MarketingTargets)
     public:
 
-      enum MarketingTargets {
+      enum MarketingTarget {
         FirstRunGna = 2596, // Первый запуск ГНА
         StartDownloadService = 37, // Начало загрузки игры
         FinishDownloadService = 38, // Окончание загрузки игры
@@ -45,8 +46,13 @@ namespace GGS {
         ClickNewGameServerPlay = 2695, // Нажали кнопку "Играть" на новом сервере
         InstalledWasNotRunShowed = 2696, // Уведомление, напоминающее о том, что ты скачал, но еще ни разу не входил в игру
         ClickInstalledWasNotRunPlay = 2697, // Нажали кнопку "Играть" на уведомлении, напоминающем о том, что ты скачал, но еще ни разу не входил в игру
-        AfterGameAdvertisingAction = 2701 // Произвели действие с окном AfterGameAdvertising
+        AfterGameAdvertisingAction = 2701, // Произвели действие с окном AfterGameAdvertising
+        AuthByOldGnaInfo = 2720, // авторизация под данным из гна генерал
+        GuestAccountRequest = 2721, // авторизация под данным из гна генерал
+        GuestAccountConfirm = 2722, // подтвеждение гостевого акк
       };
+
+      Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
 
       static Marketing *instance();
 
@@ -106,10 +112,11 @@ namespace GGS {
       void sendOnceByServiceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
       void sendOnceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
 
-    private:
-      Marketing();
+    protected:
+      Marketing(QObject* parent = 0);
       ~Marketing();
 
+    private:
       static Marketing *_instance;
       static QMutex _mutex;
       static QString _nullId;

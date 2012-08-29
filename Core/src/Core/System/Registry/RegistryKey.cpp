@@ -123,6 +123,7 @@ namespace GGS{
           }
 
           unsigned char *valueArray = new unsigned char[expectedSize + 2];
+          ZeroMemory(valueArray, expectedSize + 2);
           res = RegQueryValueExW(this->_key, paramArray, 0, &type, valueArray, &expectedSize);
           delete [] paramArray;
 
@@ -133,7 +134,8 @@ namespace GGS{
           }
 
           result = QString::fromWCharArray(reinterpret_cast<wchar_t *>(valueArray));
-          return true;
+          delete [] valueArray;
+          return true; 
         }
 
         bool RegistryKey::setValue(const QString& paramName, DWORD value)

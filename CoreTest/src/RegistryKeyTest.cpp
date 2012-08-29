@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 using namespace GGS::Core::System::Registry;
+
 TEST(RegistryKeyTest, ReadWriteTestString)
 {
   RegistryKey reg(RegistryKey::HKCU, "SOFTWARE\\GGS\\TEST");
