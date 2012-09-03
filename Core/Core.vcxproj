@@ -148,6 +148,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClCompile Include="src\Core\service.cpp" />
     <ClCompile Include="src\Core\UI\Message.cpp" />
     <ClCompile Include="src\Core\UI\MessageAdapter.cpp" />
+    <ClCompile Include="src\Core\System\Shell\UrlProtocolHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Core\System\HardwareId.h" />
@@ -196,6 +197,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     </CustomBuild>
     <ClInclude Include="resource.h" />
     <ClInclude Include="include\Core\System\Shell\ShortCut.h" />
+    <ClInclude Include="include\Core\System\Shell\UrlProtocolHelper.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>

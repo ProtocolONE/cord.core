@@ -61,6 +61,9 @@
     <ClInclude Include="include\Core\System\HardwareId.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Core\System\Shell\UrlProtocolHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Core.rc" />
@@ -116,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_Marketing.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\System\Shell\UrlProtocolHelper.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
