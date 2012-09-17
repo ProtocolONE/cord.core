@@ -48,8 +48,12 @@ namespace GGS {
         ClickInstalledWasNotRunPlay = 2697, // Нажали кнопку "Играть" на уведомлении, напоминающем о том, что ты скачал, но еще ни разу не входил в игру
         AfterGameAdvertisingAction = 2701, // Произвели действие с окном AfterGameAdvertising
         AuthByOldGnaInfo = 2720, // авторизация под данным из гна генерал
-        GuestAccountRequest = 2721, // авторизация под данным из гна генерал
+        GuestAccountRequest = 2721, // создание гстевого аккаунта
         GuestAccountConfirm = 2722, // подтвеждение гостевого акк
+        AnnouncementShown = 2723, // показали любой анонс или надпоминание
+        AnnouncementClosedClicked = 2726, // в анонсе или надпоминании тыкнули в кнопку закрыть
+        AnnouncementMissClicked = 2725, // в анонсе или надпоминании тыкнули вне кнопок
+        AnnouncementActionClicked = 2724, // в анонсе или надпоминании тыкнули в кнопку действия
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
