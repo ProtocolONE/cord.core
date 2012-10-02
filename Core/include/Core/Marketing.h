@@ -54,6 +54,10 @@ namespace GGS {
         AnnouncementClosedClicked = 2726, // в анонсе или надпоминании тыкнули в кнопку закрыть
         AnnouncementMissClicked = 2725, // в анонсе или надпоминании тыкнули вне кнопок
         AnnouncementActionClicked = 2724, // в анонсе или надпоминании тыкнули в кнопку действия
+        FirstRunQCS = 2727, // Первый запуск qCS
+        AnyStartQCS = 2728, // Любой запуск qCS
+        FirstSuccessAuthInQCS = 2729, // Первая авторизация в qCS
+        SuccessAuthInQCS = 2730, // Авторизация в qCS
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
