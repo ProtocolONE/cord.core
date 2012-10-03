@@ -57,6 +57,9 @@
     <ClCompile Include="src\MarketingTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\FileVersionTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fixtures\System\Shell\icon.ico" />
@@ -68,5 +71,13 @@
     <CustomBuild Include="include\TestEventLoopFinisher.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CoreTest.rc" />
   </ItemGroup>
 </Project>

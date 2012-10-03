@@ -58,6 +58,7 @@ namespace GGS {
         AnyStartQCS = 2728, // Любой запуск qCS
         FirstSuccessAuthInQCS = 2729, // Первая авторизация в qCS
         SuccessAuthInQCS = 2730, // Авторизация в qCS
+        AnyStartQGna = 2731, // Любой запуск qGNA.
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
