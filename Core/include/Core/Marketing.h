@@ -8,8 +8,7 @@
 ** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 ****************************************************************************/
 
-#ifndef _GGS_CORE_MARKETING_H_
-#define _GGS_CORE_MARKETING_H_
+#pragma once
 
 #include <Core/core_global>
 
@@ -26,6 +25,8 @@ namespace GGS {
       Q_OBJECT
       Q_ENUMS(MarketingTarget)
       Q_FLAGS(MarketingTargets)
+      Q_ENUMS(InstallerStep)
+      Q_FLAGS(InstallerSteps)
     public:
 
       enum MarketingTarget {
@@ -62,6 +63,12 @@ namespace GGS {
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
+
+      enum InstallerStep {
+        InstallAcceptLicense = 2608
+      };
+
+      Q_DECLARE_FLAGS(GGS::Core::Marketing::InstallerSteps, GGS::Core::Marketing::InstallerStep)
 
       static Marketing *instance();
 
@@ -116,10 +123,24 @@ namespace GGS {
       */
       static void sendOnce(MarketingTargets target, const QString& serviceId, const QVariantMap& params);
 
+
+      /*!
+        \fn static void Marketing::sendInstallerStepOnce(InstallerSteps step, const QVariantMap& params);
+        \brief Sends an installer step once.
+        \author Ilya.Tkachenko
+        \date 22.01.2013
+        \param step   Amount to increment by.
+        \param params Options for controlling the operation.
+      */
+      static void sendInstallerStepOnce(InstallerSteps step, const QVariantMap& params);
+      static void sendInstallerStepOnce(InstallerSteps step);
+
     signals:
       void marketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
       void sendOnceByServiceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
       void sendOnceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
+
+      void sendOnceInstallerStep(GGS::Core::Marketing::InstallerSteps target, const QVariantMap& params);
 
     protected:
       Marketing(QObject* parent = 0);
@@ -134,5 +155,4 @@ namespace GGS {
 }
 
 Q_DECLARE_METATYPE(GGS::Core::Marketing::MarketingTargets);
-
-#endif //_GGS_CORE_MARKETING_H_
+Q_DECLARE_METATYPE(GGS::Core::Marketing::InstallerSteps);

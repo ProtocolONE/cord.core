@@ -104,5 +104,18 @@ namespace GGS {
       Marketing *instance = Marketing::instance();
       emit instance->sendOnceByServiceMarketingRequest(target, serviceId, params);
     }
+
+    void Marketing::sendInstallerStepOnce(InstallerSteps step, const QVariantMap& params)
+    {
+      Marketing *instance = Marketing::instance();
+      emit instance->sendOnceInstallerStep(step, params);
+    }
+
+    void Marketing::sendInstallerStepOnce(InstallerSteps step)
+    {
+      QVariantMap emptyParams;
+      sendInstallerStepOnce(step, emptyParams);
+    }
+
   }
 }
