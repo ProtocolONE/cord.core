@@ -60,6 +60,8 @@ namespace GGS {
         FirstSuccessAuthInQCS = 2729, // Первая авторизация в qCS
         SuccessAuthInQCS = 2730, // Авторизация в qCS
         AnyStartQGna = 2731, // Любой запуск qGNA.
+        ProblemAfterGameStart = 2748, // Проблемы при запуске игры
+        NotLikeTheGame = 2749, // Игра не понравилась - пользователь играл слишком мало
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
