@@ -4,7 +4,7 @@
 #include <Core/UI/Message.h>
 #include <Core/UI/MessageAdapter.h>
 
-#include <QtCore/QtConcurrentRun>
+#include <QtConcurrent/QtConcurrentRun>
 #include <QtCore/QFuture>
 #include <QtTest/QSignalSpy>
 

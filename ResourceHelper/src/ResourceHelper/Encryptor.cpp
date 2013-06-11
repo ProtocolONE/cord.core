@@ -13,6 +13,7 @@
 
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
+#include <QtCore/QDataStream>
 
 #define CRITICAL_LOG qCritical() << __FILE__ << __LINE__ << __FUNCTION__
 #define WARNING_LOG qWarning() << __FILE__ << __LINE__ << __FUNCTION__

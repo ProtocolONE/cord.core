@@ -7,10 +7,10 @@
 #include <gtest/gtest.h>
 #include <windows.h>
 
-#define ARGS QString::fromUtf16(L"arg1 arg2 arg3 русский")
-#define DESCRIPTION QString::fromUtf16(L"the description на русском")
-#define WORKINGDIR QString::fromUtf16(L"x:\\mega pa th\\с русскими\\буквами")
-#define PATH QString::fromUtf16(L"c:\\русский\\megafile.xpp")
+#define ARGS QString::fromWCharArray(L"arg1 arg2 arg3 русский")
+#define DESCRIPTION QString::fromWCharArray(L"the description на русском")
+#define WORKINGDIR QString::fromWCharArray(L"x:\\mega pa th\\с русскими\\буквами")
+#define PATH QString::fromWCharArray(L"c:\\русский\\megafile.xpp")
 
 TEST(ShortCutTest, SaveLoad)
 {

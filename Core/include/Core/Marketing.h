@@ -62,6 +62,7 @@ namespace GGS {
         AnyStartQGna = 2731, // Любой запуск qGNA.
         ProblemAfterGameStart = 2748, // Проблемы при запуске игры
         NotLikeTheGame = 2749, // Игра не понравилась - пользователь играл слишком мало
+        ThettaInfo = 2750, // Информация об установке/удалению драйвера.
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
