@@ -26,10 +26,10 @@ namespace GGS {
             link->Release();
         }
 
-        bool TaskManager::isWinVistaOrLater() 
+        bool TaskManager::isOScompatible() 
         {
 #ifdef Q_WS_WIN
-          return QSysInfo::windowsVersion() >= QSysInfo::WV_VISTA;
+          return QSysInfo::windowsVersion() >= QSysInfo::WV_WINDOWS7;
 #endif
           return false;
         }
@@ -83,7 +83,7 @@ namespace GGS {
 
         void TaskManager::apply() 
         {
-          if (!this->isWinVistaOrLater() || this->_guid.isEmpty())
+          if (!this->isOScompatible() || this->_guid.isEmpty())
             return;
 
           UINT max_count = 0;

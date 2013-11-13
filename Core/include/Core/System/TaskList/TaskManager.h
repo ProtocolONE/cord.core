@@ -37,7 +37,7 @@ namespace GGS {
 
         private:
           IShellLink* createShellLink(TaskItem* item);
-          bool isWinVistaOrLater();
+          bool isOScompatible();
 
           QMap<int, QList<TaskItem>> _items;
           QMap<int, QString> _categories;
