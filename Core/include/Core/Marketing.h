@@ -63,6 +63,7 @@ namespace GGS {
         ProblemAfterGameStart = 2748, // Проблемы при запуске игры
         NotLikeTheGame = 2749, // Игра не понравилась - пользователь играл слишком мало
         ThettaInfo = 2750, // Информация об установке/удалению драйвера.
+        ThettaConnectFail = 2754, // Не удалось подлкючиться к драйверу. Игра не запустится.
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
