@@ -143,7 +143,7 @@ namespace GGS {
           shellLink->QueryInterface(IID_IPropertyStore, reinterpret_cast<void**> (&propStore));
 
           PROPERTYKEY pkeyTitle;
-          CLSIDFromString(this->_guid.utf16(), &(pkeyTitle.fmtid));
+          CLSIDFromString(reinterpret_cast<const wchar_t*>(this->_guid.utf16()), &(pkeyTitle.fmtid));
           pkeyTitle.pid = 2;
 
           InitPropVariantFromString(item->name().toStdWString().c_str(), &pv);

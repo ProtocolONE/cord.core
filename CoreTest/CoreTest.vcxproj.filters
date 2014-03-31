@@ -60,6 +60,9 @@
     <ClCompile Include="src\HardwareIdTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\TaskListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="fixtures\System\Shell\icon.ico" />
