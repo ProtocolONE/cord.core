@@ -28,7 +28,7 @@ namespace GGS {
 
         bool TaskManager::isOScompatible() 
         {
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
           return QSysInfo::windowsVersion() >= QSysInfo::WV_WINDOWS7;
 #endif
           return false;
