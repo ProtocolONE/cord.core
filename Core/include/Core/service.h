@@ -22,9 +22,9 @@ namespace GGS {
         Tst
       };
 
-      explicit Service(const Service &service);
+      Service(const Service &service);
       explicit Service(QObject *parent = 0);
-      ~Service();
+      virtual ~Service();
 
       Service &operator = (const Service &);
 
@@ -152,6 +152,60 @@ namespace GGS {
       */
       void setExternalDependencyList(const QString& externalDependencyList);
 
+      /**
+       * \fn  quint64 Service::gameSize() const;
+       *
+       * \brief Возвращает примерный размер игры на диске в мегабайтах.
+       *
+       * \author  Ilya Tkachenko
+       * \date  15.09.2014
+       *
+       * \return Размер игры в мегабайтах на диске.
+       */
+      quint64 gameSize() const;
+
+      /**
+       * \fn  void Service::setGameSize(quint64 val);
+       *
+       * \brief Устанавливает примерный размер игры на диске.
+       *
+       * \author  Ilya Tkachenko
+       * \date  15.09.2014
+       *
+       * \param val Размер игры в мегабайтах на диске.
+       */
+      void setGameSize(quint64 val);
+
+      /**
+       * \fn  const QString& Service::urlTemplate() const;
+       *
+       * \brief Возвращает прототип строки запуска игры. На основани этого параметра формируется url запуска игры.
+       *        Пример темплейта:
+       *        "exe:%gamePath%/client/Client.exe"
+       *        "?workingDir=%gamePath%/"
+       *        "&args=%userId% %token%&"
+       *        
+       *        %gamePath% - Путь до игры: %installDir%/%gameArea%
+       *
+       * \author  Ilya Tkachenko
+       * \date  15.09.2014
+       *
+       * \return  Прототип строки запуска игры.
+       */
+      const QString& urlTemplate() const;
+
+      /**
+       * \fn  void Service::setUrlTemplate(const QString& val);
+       *
+       * \brief Установить прототип строки запуска игры.
+       *
+       * \author  Ilya Tkachenko
+       * \date  15.09.2014
+       *
+       * \param val Прототип строки запуска игры.
+       */
+      void setUrlTemplate(const QString& val);
+
     private:
       QString _id;
       QString _gameId;
@@ -168,7 +222,11 @@ namespace GGS {
       bool _hashDownloadPath;
       bool _isDefaultInstallPath;
       QString _externalDependencyList;
+      quint64 _gameSize;
+      QString _urlTemplate;
+      
     };
+
   }
 }
 

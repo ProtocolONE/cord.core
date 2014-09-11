@@ -124,7 +124,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClCompile Include="GeneratedFiles\Debug\moc_MessageAdapter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_service.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_Service.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_TaskManager.cpp">
@@ -139,7 +139,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClCompile Include="GeneratedFiles\Release\moc_MessageAdapter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_service.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_Service.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_TaskManager.cpp">
@@ -152,7 +152,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClCompile Include="src\Core\System\Registry\RegistryKey.cpp" />
     <ClCompile Include="src\Core\System\Shell\ShortCut.cpp" />
     <ClCompile Include="src\Core\Locator.cpp" />
-    <ClCompile Include="src\Core\service.cpp" />
+    <ClCompile Include="src\Core\Service.cpp" />
     <ClCompile Include="src\Core\System\TaskList\TaskItem.cpp" />
     <ClCompile Include="src\Core\System\TaskList\TaskManager.cpp" />
     <ClCompile Include="src\Core\UI\Message.cpp" />
@@ -179,13 +179,13 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClInclude Include="include\Core\System\HardwareId.h" />
     <ClInclude Include="include\Core\Locator.h" />
     <ClInclude Include="include\Core\core_global.h" />
-    <CustomBuild Include="include\Core\service.h">
+    <CustomBuild Include="include\Core\Service.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing service.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing Service.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_CORE_LIB -DCORE_LIB -DQT_DLL -D_WINDLL -D_UNICODE  "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I." "-I$(ProjectDir)\include" "-I.\UI" "-I.\include\Core\UI" "-I$(QGNACOMMONDIR)\GGS\HWID\trunk\include" "-I.\include\Core\System"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing service.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing Service.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DCORE_LIB -DQT_DLL -D_WINDLL -D_UNICODE  "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I." "-I$(ProjectDir)\include" "-I.\UI" "-I.\include\Core\UI" "-I$(QGNACOMMONDIR)\GGS\HWID\trunk\include" "-I.\include\Core\System"</Command>
     </CustomBuild>

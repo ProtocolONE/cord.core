@@ -1,4 +1,4 @@
-#include <Core/service.h>
+#include <Core/Service.h>
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
 
@@ -24,7 +24,9 @@ namespace GGS {
       , _isDownloadable(service._isDownloadable)
       , _hashDownloadPath(service._hashDownloadPath)
       , _isDefaultInstallPath(service._isDefaultInstallPath)
-      , _externalDependencyList(service._externalDependencyList) //UNDONE
+      , _externalDependencyList(service._externalDependencyList) 
+      , _gameSize(service._gameSize)
+      , _urlTemplate(service._urlTemplate)
     {
     }
     
@@ -52,6 +54,8 @@ namespace GGS {
       this->_hashDownloadPath     = service._hashDownloadPath;
       this->_isDefaultInstallPath = service._isDefaultInstallPath;
       this->_externalDependencyList = service._externalDependencyList;
+      this->_gameSize             = service._gameSize;
+      this->_urlTemplate          = service._urlTemplate;
 
       return *this;
     }
@@ -224,6 +228,26 @@ namespace GGS {
     void Service::setExternalDependencyList(const QString& externalDependencyList)
     {
       this->_externalDependencyList = externalDependencyList;
+    }
+
+    quint64 Service::gameSize() const
+    {
+      return this->_gameSize;
+    }
+
+    void Service::setGameSize(quint64 val)
+    {
+      this->_gameSize = val;
+    }
+
+    const QString& Service::urlTemplate() const
+    {
+      return this->_urlTemplate;
+    }
+
+    void Service::setUrlTemplate(const QString& val)
+    {
+      this->_urlTemplate = val;
     }
 
   }
