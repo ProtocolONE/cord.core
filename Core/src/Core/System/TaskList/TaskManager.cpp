@@ -130,11 +130,13 @@ namespace GGS {
 
         IShellLink* TaskManager::createShellLink(TaskItem* item) 
         {
+          Q_ASSERT(item);
           IShellLink* shellLink = NULL;
           CoCreateInstance(CLSID_ShellLink, NULL, CLSCTX_INPROC_SERVER, IID_IShellLink, reinterpret_cast<void**>(&shellLink));
 
-          shellLink->SetPath(QCoreApplication::applicationFilePath().toStdWString().c_str());
-          shellLink->SetArguments(item->params().toStdWString().c_str());
+          shellLink->SetPath(item->url().toStdWString().c_str());
+          if (!item->params().isEmpty())
+            shellLink->SetArguments(item->params().toStdWString().c_str());
           shellLink->SetIconLocation(item->icon().toStdWString().c_str(), 0);
           shellLink->SetDescription(item->description().toStdWString().c_str());
 
