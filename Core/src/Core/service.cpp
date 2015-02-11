@@ -13,6 +13,7 @@ namespace GGS {
       : _id(service._id)
       , _gameId(service._gameId)
       , _name(service._name)
+      , _displayName(service._displayName)
       , _url(service._url)
       , _torrentUrl(service._torrentUrl)
       , _torrentFilePath(service._torrentFilePath)
@@ -39,6 +40,7 @@ namespace GGS {
       this->_id                   = service._id;
       this->_gameId               = service._gameId;
       this->_name                 = service._name;
+      this->_displayName          = service._displayName;
       this->_url                  = service._url;
       this->_torrentUrl           = service._torrentUrl;
       this->_torrentFilePath      = service._torrentFilePath;
@@ -82,6 +84,16 @@ namespace GGS {
     const QString& Service::name() const
     {
       return this->_name;
+    }
+
+    void Service::setDisplayName(const QString &displayName)
+    {
+      this->_displayName = displayName;
+    }
+
+    const QString& Service::displayName() const
+    {
+      return this->_displayName;
     }
 
     void Service::setUrl(const QUrl &url)

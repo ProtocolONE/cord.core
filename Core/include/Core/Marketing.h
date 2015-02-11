@@ -65,6 +65,8 @@ namespace GGS {
         ThettaInfo = 2750, // Информация об установке/удалению драйвера.
         ThettaConnectFail = 2754, // Не удалось подлкючиться к драйверу. Игра не запустится.
         ThettaSendInfoFail = 2756, // Не удалось отправить данные на сервер Thetta.
+        ServiceUninstalledFromUI = 2800, // Игра удалена с помощью нажатия кнопки "Удалить" в настройках
+        ServiceUninstalledFromOS = 2801  // Игра удалена с помощью средств ОС (Панель Управления->Программы и компоненты)
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)

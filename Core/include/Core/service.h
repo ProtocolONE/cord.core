@@ -37,6 +37,9 @@ namespace GGS {
       void setName(const QString &name);
       const QString &name() const;
 
+      void setDisplayName(const QString &name);
+      const QString &displayName() const;
+
       void setUrl(const QUrl &url);
       const QUrl &url() const;
 
@@ -153,6 +156,7 @@ namespace GGS {
       QString _id;
       QString _gameId;
       QString _name;
+      QString _displayName;
       QUrl _url;
       QUrl _torrentUrl;
       QString _torrentFilePath;
