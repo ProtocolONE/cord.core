@@ -66,7 +66,8 @@ namespace GGS {
         ThettaConnectFail = 2754, // Не удалось подлкючиться к драйверу. Игра не запустится.
         ThettaSendInfoFail = 2756, // Не удалось отправить данные на сервер Thetta.
         ServiceUninstalledFromOS = 2762,  // Игра удалена с помощью средств ОС (Панель Управления->Программы и компоненты)
-        ServiceUninstalledFromUI = 2763 // Игра удалена с помощью нажатия кнопки "Удалить" в настройках
+        ServiceUninstalledFromUI = 2763, // Игра удалена с помощью нажатия кнопки "Удалить" в настройках
+        ThettaPatternFound = 2766 // Сканнер нашел чит в игре и закрыл приложение 
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
