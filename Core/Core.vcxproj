@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,10 +18,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -47,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;QT_CORE_LIB;CORE_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;.\;$(ProjectDir)\include;.\UI;.\include\Core\UI;$(QGNACOMMONDIR)\GGS\HWID\trunk\include;.\include\Core\System;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;.\;$(ProjectDir)\include;.\UI;.\include\Core\UI;$(QGNACOMMONDIR)\GGS\HWID\1.0.vs13\include;.\include\Core\System;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -57,7 +59,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\GGS\HWID\trunk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\GGS\HWID\1.0.vs13\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>version.lib;qtmaind.lib;Qt5Cored.lib;Commonx32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -83,7 +85,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;CORE_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;.\;$(ProjectDir)\include;.\UI;.\include\Core\UI;$(QGNACOMMONDIR)\GGS\HWID\trunk\include;.\include\Core\System;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;.\;$(ProjectDir)\include;.\UI;.\include\Core\UI;$(QGNACOMMONDIR)\GGS\HWID\1.0.vs13\include;.\include\Core\System;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -93,7 +95,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\GGS\HWID\trunk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\GGS\HWID\1.0.vs13\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>version.lib;qtmain.lib;Qt5Core.lib;Commonx32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

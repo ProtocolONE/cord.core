@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,9 +18,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -47,7 +49,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;.\;$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\include;$(QTDIR)\include\QtTest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QGNACOMMONDIR)\Google\gtest\1.7.0.vs13\include;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;.\;$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\include;$(QTDIR)\include\QtTest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level1</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -55,9 +57,9 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\Google\gtest\1.6.0\lib;$(SolutionDir)!build\Core\$(Configuration);$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\Google\gtest\1.7.0.vs13\lib;$(SolutionDir)!build\Core\$(Configuration);$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;gtestd.lib;Qt5Cored.lib;CoreX86d.lib;BugTrap.lib;Qt5Testd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmaind.lib;gtestX86-md-d.lib;Qt5Cored.lib;CoreX86d.lib;BugTrap.lib;Qt5Testd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /E /Y /I /R "$(ProjectDir)\fixtures" "$(TargetDir)\fixtures"
@@ -72,16 +74,16 @@ xcopy /Y /I /R /E "$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\bin\*.dll
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;.\;$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\include;$(QTDIR)\include\QtTest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QGNACOMMONDIR)\Google\gtest\1.7.0.vs13\include;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;.\;$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\include;$(QTDIR)\include\QtTest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\Google\gtest\1.6.0\lib;$(SolutionDir)!build\Core\$(Configuration);$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QGNACOMMONDIR)\Google\gtest\1.7.0.vs13\lib;$(SolutionDir)!build\Core\$(Configuration);$(QGNACOMMONDIR)\IntelleSoft\BugTrap\$(BugTrapArea)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;gtest.lib;Qt5Core.lib;CoreX86.lib;BugTrap.lib;Qt5Test.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmain.lib;gtestX86-md.lib;Qt5Core.lib;CoreX86.lib;BugTrap.lib;Qt5Test.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /E /Y /I /R "$(ProjectDir)\fixtures" "$(TargetDir)\fixtures"
