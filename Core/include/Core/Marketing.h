@@ -67,6 +67,7 @@ namespace GGS {
         ThettaSendInfoFail = 2756, // Не удалось отправить данные на сервер Thetta.
         ServiceUninstalledFromOS = 2762,  // Игра удалена с помощью средств ОС (Панель Управления->Программы и компоненты)
         ServiceUninstalledFromUI = 2763, // Игра удалена с помощью нажатия кнопки "Удалить" в настройках
+        ThettaWinKernelInfo = 2794, // Информация о ядре - подпись/путь
         ThettaPatternFound = 2766, // Сканнер нашел чит в игре и закрыл приложение 
         ApplicationSettingsChanged = 2768, // Информация о выбранных настройках приложения.
       };
