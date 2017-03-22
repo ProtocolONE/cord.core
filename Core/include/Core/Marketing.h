@@ -70,6 +70,7 @@ namespace GGS {
         ThettaWinKernelInfo = 2794, // Информация о ядре - подпись/путь
         ThettaPatternFound = 2766, // Сканнер нашел чит в игре и закрыл приложение 
         ApplicationSettingsChanged = 2768, // Информация о выбранных настройках приложения.
+        FirstStartDownloadService = 2795, // Первое начало скачивание сервиса. Посылается один раз на событие.
       };
 
       Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
