@@ -159,6 +159,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
     <ClCompile Include="src\Core\Service.cpp" />
     <ClCompile Include="src\Core\System\TaskList\TaskItem.cpp" />
     <ClCompile Include="src\Core\System\TaskList\TaskManager.cpp" />
+    <ClCompile Include="src\Core\System\ProcessTools.cpp" />
     <ClCompile Include="src\Core\UI\Message.cpp" />
     <ClCompile Include="src\Core\UI\MessageAdapter.cpp" />
     <ClCompile Include="src\Core\System\Shell\UrlProtocolHelper.cpp" />
@@ -250,6 +251,7 @@ $(QTDIR)\bin\lupdate.exe "$(ProjectDir)\." -ts "$(ProjectDir)\i18n\$(ProjectName
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DCORE_LIB -DQT_DLL -D_WINDLL -D_UNICODE  "-I.\GeneratedFiles" "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I." "-I$(ProjectDir)\include" "-I.\UI" "-I.\include\Core\UI" "-I$(QGNACOMMONDIR)\GGS\HWID\trunk\include" "-I.\include\Core\System"</Command>
     </CustomBuild>
+    <ClInclude Include="include\Core\System\ProcessTools.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="include\Core\System\Shell\ShortCut.h" />
     <ClInclude Include="include\Core\System\Shell\UrlProtocolHelper.h" />
