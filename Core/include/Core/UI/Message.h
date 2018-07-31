@@ -35,6 +35,7 @@ namespace GGS{
         enum StandardButton {
           // keep this in sync with QDialogButtonBox::StandardButton
           NoButton           = 0x00000000,
+          Support            = 0x00000200,
           Ok                 = 0x00000400,
           Save               = 0x00000800,
           SaveAll            = 0x00001000,
