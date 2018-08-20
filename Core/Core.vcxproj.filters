@@ -67,6 +67,9 @@
     <ClInclude Include="include\Core\System\ProcessTools.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Core\RegisterTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Core.rc" />
@@ -142,6 +145,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Core\System\ProcessTools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\RegisterTypes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

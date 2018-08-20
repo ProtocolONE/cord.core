@@ -1,5 +1,4 @@
-﻿#ifndef _GGS_CORE_UI_MESSAGE_H_
-#define _GGS_CORE_UI_MESSAGE_H_
+﻿#pragma once
 
 #include <Core/core_global.h>
 
@@ -7,9 +6,9 @@
 #include <QtCore/QMutex>
 #include <QtCore/QPointer>
 
-namespace GGS{
-  namespace Core{
-    namespace UI{
+namespace P1 {
+  namespace Core {
+    namespace UI {
 
       /*
       05.06.2012 igor bugaev
@@ -56,7 +55,7 @@ namespace GGS{
           RestoreDefaults    = 0x08000000
         };
 
-        Q_DECLARE_FLAGS(GGS::Core::UI::Message::StandardButtons, GGS::Core::UI::Message::StandardButton)
+        Q_DECLARE_FLAGS(P1::Core::UI::Message::StandardButtons, P1::Core::UI::Message::StandardButton)
 
         explicit Message(QObject *parent = 0);
         Message(Icon icon, const QString& title, const QString& text, StandardButtons buttons = NoButton, QObject *parent = 0);
@@ -118,4 +117,3 @@ namespace GGS{
   }
 }
 
-#endif // MESSAGEBOX_H

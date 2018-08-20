@@ -1,8 +1,8 @@
-#ifndef _GGS_GAMEDOWNLOADER_TEST_TESTEVENTLOOPFINISHER_H_
-#define _GGS_GAMEDOWNLOADER_TEST_TESTEVENTLOOPFINISHER_H_
+#pragma once 
 
 #include <QtCore/QObject>
 #include <QtCore/QEventLoop>
+
 class TestEventLoopFinisher : public QObject
 {
   Q_OBJECT
@@ -23,5 +23,3 @@ private:
   bool _timeoutKill;
   QEventLoop *_loop;
 };
-
-#endif // _GGS_GAMEDOWNLOADER_TEST_TESTEVENTLOOPFINISHER_H_

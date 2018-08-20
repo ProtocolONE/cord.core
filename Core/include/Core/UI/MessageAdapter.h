@@ -1,5 +1,4 @@
-﻿#ifndef _GGS_CORE_UI_MESSAGEADAPTER_H_
-#define _GGS_CORE_UI_MESSAGEADAPTER_H_
+﻿#pragma once
 
 #include <Core/core_global.h>
 
@@ -17,9 +16,9 @@ by igor bugaev
 buttonClicked() возвращает из контейнера код нажатой кнопки, и сразу же производит очистку из контейнера.
 */
 
-namespace GGS{
-  namespace Core{
-    namespace UI{
+namespace P1 {
+  namespace Core {
+    namespace UI {
 
       class CORE_EXPORT MessageAdapter : public QObject
       {
@@ -32,13 +31,13 @@ namespace GGS{
         virtual void show(
           const QString& title, 
           const QString& text, 
-          GGS::Core::UI::Message::StandardButtons buttons, 
-          GGS::Core::UI::Message::Icon icon, 
+          P1::Core::UI::Message::StandardButtons buttons, 
+          P1::Core::UI::Message::Icon icon, 
           int messageId, 
           QObject* reciever, 
           const char* member) = 0;
 
-        GGS::Core::UI::Message::StandardButton buttonClicked(int messageId);
+        P1::Core::UI::Message::StandardButton buttonClicked(int messageId);
 
       protected:
         QMap<int, Message::StandardButton> _returnButtons;
@@ -46,5 +45,3 @@ namespace GGS{
     }
   }
 }
-
-#endif // MESSAGEADAPTER_H

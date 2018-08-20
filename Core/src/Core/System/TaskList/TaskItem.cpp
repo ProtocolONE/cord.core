@@ -1,6 +1,6 @@
 #include <Core/System/TaskList/TaskItem.h>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     namespace System {
       namespace TaskList {

@@ -8,7 +8,7 @@
 #include <Propvarutil.h>
 #include <Propsys.h>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     namespace System {
       namespace TaskList {

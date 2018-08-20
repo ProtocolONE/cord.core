@@ -2,17 +2,17 @@
 
 #include <gtest/gtest.h>
 
-using namespace GGS::Core::System::Registry;
+using namespace P1::Core::System::Registry;
 
 TEST(RegistryKeyTest, ReadWriteTestString)
 {
-  RegistryKey reg(RegistryKey::HKCU, "SOFTWARE\\GGS\\TEST");
+  RegistryKey reg(RegistryKey::HKCU, "SOFTWARE\\PONE\\TEST");
   ASSERT_TRUE(reg.isValid());
   QString paramName("RegistryKeyTestParam");
   QString value("RegistryKeyTestValue");
   ASSERT_TRUE(reg.setValue(paramName, value));
   
-  RegistryKey reg2(RegistryKey::HKCU, "SOFTWARE\\GGS\\TEST");
+  RegistryKey reg2(RegistryKey::HKCU, "SOFTWARE\\PONE\\TEST");
   ASSERT_TRUE(reg2.isValid());
 
   QString value2;
@@ -26,13 +26,13 @@ TEST(RegistryKeyTest, ReadWriteTestString)
 
 TEST(RegistryKeyTest, ReadWriteTestDWORD)
 {
-  RegistryKey reg(RegistryKey::HKCU, "SOFTWARE\\GGS\\TEST");
+  RegistryKey reg(RegistryKey::HKCU, "SOFTWARE\\PONE\\TEST");
   ASSERT_TRUE(reg.isValid());
   QString paramName("RegistryKeyTestParamDWORD");
   DWORD value = 0x12345678;
   ASSERT_TRUE(reg.setValue(paramName, value));
 
-  RegistryKey reg2(RegistryKey::HKCU, "SOFTWARE\\GGS\\TEST");
+  RegistryKey reg2(RegistryKey::HKCU, "SOFTWARE\\PONE\\TEST");
   ASSERT_TRUE(reg2.isValid());
 
   DWORD value2;

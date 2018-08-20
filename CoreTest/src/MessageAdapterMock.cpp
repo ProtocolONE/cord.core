@@ -14,7 +14,7 @@ MessageAdapterMock::~MessageAdapterMock()
 {
 }
 
-void MessageAdapterMock::show(const QString& title, const QString& text, GGS::Core::UI::Message::StandardButtons buttons, GGS::Core::UI::Message::Icon icon, int messageId, QObject* reciever, const char* member)
+void MessageAdapterMock::show(const QString& title, const QString& text, P1::Core::UI::Message::StandardButtons buttons, P1::Core::UI::Message::Icon icon, int messageId, QObject* reciever, const char* member)
 {
   connect(this, SIGNAL(testSignal(int)), reciever, member, Qt::QueuedConnection);
   emit this->testSignal(Message::Help);

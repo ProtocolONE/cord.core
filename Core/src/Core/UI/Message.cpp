@@ -4,9 +4,9 @@
 #include <QDebug>
 #include <QMutex>
 
-namespace GGS{
-  namespace Core{
-    namespace UI{
+namespace P1 {
+  namespace Core {
+    namespace UI {
 
       QPointer<MessageAdapter> Message::_adapter = 0;
       int Message::_messageId = 0;
@@ -80,7 +80,7 @@ namespace GGS{
         this->_icon = icon;
       }
 
-      GGS::Core::UI::Message::StandardButtons Message::buttons() const
+      P1::Core::UI::Message::StandardButtons Message::buttons() const
       {
         return this->_buttons;
       }
@@ -120,7 +120,7 @@ namespace GGS{
         return Message::_adapter->buttonClicked(nextMessageID);
       }
 
-      void Message::setAdapter(GGS::Core::UI::MessageAdapter* adapter)
+      void Message::setAdapter(P1::Core::UI::MessageAdapter* adapter)
       {
         Q_CHECK_PTR(adapter);
         Message::_adapter = adapter;

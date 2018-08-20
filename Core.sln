@@ -1,12 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{BEE52A13-D136-41CA-B802-E5D41BC5008C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{071CBC85-BB41-4D83-BB4D-AFF940EFCDB9}"
 	ProjectSection(SolutionItems) = preProject
 		Deploy.props = Deploy.props
-		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoreTest", "CoreTest\CoreTest.vcxproj", "{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}"
@@ -14,31 +15,36 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CoreTest", "CoreTest\CoreTe
 		{BEE52A13-D136-41CA-B802-E5D41BC5008C} = {BEE52A13-D136-41CA-B802-E5D41BC5008C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceHelper", "ResourceHelper\ResourceHelper.vcxproj", "{C4ED879D-1CFC-4FB2-959A-39C7FA5868FD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
+		Static Debug|Win32 = Static Debug|Win32
+		Static Release|Win32 = Static Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Debug|Win32.Build.0 = Debug|Win32
 		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Release|Win32.ActiveCfg = Release|Win32
 		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Release|Win32.Build.0 = Release|Win32
+		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Static Debug|Win32.ActiveCfg = Static Debug|Win32
+		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Static Debug|Win32.Build.0 = Static Debug|Win32
+		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Static Release|Win32.ActiveCfg = Static Release|Win32
+		{BEE52A13-D136-41CA-B802-E5D41BC5008C}.Static Release|Win32.Build.0 = Static Release|Win32
 		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Debug|Win32.Build.0 = Debug|Win32
 		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Release|Win32.ActiveCfg = Release|Win32
 		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Release|Win32.Build.0 = Release|Win32
-		{C4ED879D-1CFC-4FB2-959A-39C7FA5868FD}.Debug|Win32.ActiveCfg = Debug|Win32
-		{C4ED879D-1CFC-4FB2-959A-39C7FA5868FD}.Debug|Win32.Build.0 = Debug|Win32
-		{C4ED879D-1CFC-4FB2-959A-39C7FA5868FD}.Release|Win32.ActiveCfg = Release|Win32
-		{C4ED879D-1CFC-4FB2-959A-39C7FA5868FD}.Release|Win32.Build.0 = Release|Win32
+		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Static Debug|Win32.ActiveCfg = Static Debug|Win32
+		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Static Debug|Win32.Build.0 = Static Debug|Win32
+		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Static Release|Win32.ActiveCfg = Static Release|Win32
+		{FD03ED65-E7CD-44A1-BDE2-ECEEF5EA8D1C}.Static Release|Win32.Build.0 = Static Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DA2CFB1-518B-4A12-9DE2-E443BDC5F16C}
 		QtVersion = $(DefaultQtVersion)
 	EndGlobalSection
 EndGlobal

@@ -19,18 +19,18 @@ TEST(ShortCutTest, SaveLoad)
   
   QFile::remove(lnkPath);
  
-  GGS::Core::System::Shell::ShortCut object;
+  P1::Core::System::Shell::ShortCut object;
   
   object.setArguments(ARGS);
   object.setDescription(DESCRIPTION);
-  object.setShowCmd(GGS::Core::System::Shell::ShortCut::MinNoActive);
+  object.setShowCmd(P1::Core::System::Shell::ShortCut::MinNoActive);
   object.setWorkingDirectory(WORKINGDIR);
   object.setPath(PATH);
   object.setIconLocation(appPath + "/fixtures/system/shell/icon.ico");
   object.setIconIndex(2);
   ASSERT_TRUE(object.save(lnkPath));
 
-  GGS::Core::System::Shell::ShortCut secondObject;
+  P1::Core::System::Shell::ShortCut secondObject;
   ASSERT_TRUE(secondObject.load(lnkPath));
   EXPECT_EQ(object.arguments(), secondObject.arguments());
   EXPECT_EQ(object.description(), secondObject.description());

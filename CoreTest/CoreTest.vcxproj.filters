@@ -39,9 +39,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\MessageAdapterMock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\TestEventLoopFinisher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,6 +58,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TaskListTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gtest.cc" />
+    <ClCompile Include="src\MessageAdapterMock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

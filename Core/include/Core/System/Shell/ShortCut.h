@@ -1,10 +1,9 @@
-#ifndef _GGS_CORE_SYSTEM_SHELL_SHORTCUT_H
-#define _GGS_CORE_SYSTEM_SHELL_SHORTCUT_H
+#pragma once
 
 #include <Core/core_global.h>
 #include <QtCore/QString>
 
-namespace GGS{
+namespace P1 {
   namespace Core {
     namespace System {
       namespace Shell {
@@ -15,7 +14,7 @@ namespace GGS{
           \brief Позволяет создавать и читать ярлыки.
 
           \code
-              GGS::Core::System::Shell::ShortCut object;
+              P1::Core::System::Shell::ShortCut object;
               object.setDescription("The description");
               object.setPath("cmd.exe");
               object.save("c:\\cmd.lnk");
@@ -85,5 +84,4 @@ namespace GGS{
     }
   }
 }
-
-#endif //_GGS_CORE_SYSTEM_SHELL_SHORTCUT_H
+                                          

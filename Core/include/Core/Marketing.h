@@ -1,23 +1,13 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates. 
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
 #pragma once
 
-#include <Core/core_global>
+#include <Core/core_global.h>
 
 #include <QtCore/QObject>
 #include <QtCore/QMetaType>
 #include <QtCore/QMutex>
 #include <QtCore/QVariantMap>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
 
     class CORE_EXPORT Marketing : public QObject
@@ -73,13 +63,13 @@ namespace GGS {
         FirstStartDownloadService = 2795, // Первое начало скачивание сервиса. Посылается один раз на событие.
       };
 
-      Q_DECLARE_FLAGS(GGS::Core::Marketing::MarketingTargets, GGS::Core::Marketing::MarketingTarget)
+      Q_DECLARE_FLAGS(P1::Core::Marketing::MarketingTargets, P1::Core::Marketing::MarketingTarget)
 
       enum InstallerStep {
         InstallAcceptLicense = 2608
       };
 
-      Q_DECLARE_FLAGS(GGS::Core::Marketing::InstallerSteps, GGS::Core::Marketing::InstallerStep)
+      Q_DECLARE_FLAGS(P1::Core::Marketing::InstallerSteps, P1::Core::Marketing::InstallerStep)
 
       static Marketing *instance();
 
@@ -147,11 +137,11 @@ namespace GGS {
       static void sendInstallerStepOnce(InstallerSteps step);
 
     signals:
-      void marketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
-      void sendOnceByServiceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
-      void sendOnceMarketingRequest(GGS::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
+      void marketingRequest(P1::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
+      void sendOnceByServiceMarketingRequest(P1::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
+      void sendOnceMarketingRequest(P1::Core::Marketing::MarketingTargets target, const QString& serviceId, const QVariantMap& params);
 
-      void sendOnceInstallerStep(GGS::Core::Marketing::InstallerSteps target, const QVariantMap& params);
+      void sendOnceInstallerStep(P1::Core::Marketing::InstallerSteps target, const QVariantMap& params);
 
     protected:
       Marketing(QObject* parent = 0);
@@ -165,5 +155,5 @@ namespace GGS {
   }
 }
 
-Q_DECLARE_METATYPE(GGS::Core::Marketing::MarketingTargets);
-Q_DECLARE_METATYPE(GGS::Core::Marketing::InstallerSteps);
+Q_DECLARE_METATYPE(P1::Core::Marketing::MarketingTargets);
+Q_DECLARE_METATYPE(P1::Core::Marketing::InstallerSteps);

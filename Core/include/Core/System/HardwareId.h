@@ -1,22 +1,11 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates. 
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
+#pragma once
 
-#ifndef _GGS_CORE_SYSTEM_HARDWAREID_H_
-#define _GGS_CORE_SYSTEM_HARDWAREID_H_
-
-#include <Core/core_global>
+#include <Core/core_global.h>
 
 #include <QtCore/QString>
 #include <QtCore/QMutex>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     namespace System {
 
@@ -36,5 +25,3 @@ namespace GGS {
     }
   }
 }
-
-#endif //_GGS_CORE_SYSTEM_HARDWAREID_H_

@@ -1,6 +1,6 @@
 #include <Core/Locator.h>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     Locator::Locator()
     {

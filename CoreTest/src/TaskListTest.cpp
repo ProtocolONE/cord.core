@@ -4,7 +4,7 @@
 #include <QtCore/QCoreApplication>
 #include <gtest/gtest.h>
 
-using namespace GGS::Core::System::TaskList;
+using namespace P1::Core::System::TaskList;
 
 TEST(TaskListTest, TaskListTestCreation)
 {

@@ -1,9 +1,9 @@
 #pragma once
 
-#include <Core/core_global>
+#include <Core/core_global.h>
 #include <QObject>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     namespace System {
       namespace TaskList {

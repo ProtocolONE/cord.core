@@ -2,7 +2,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     Service::Service(QObject *parent)
       : QObject(parent)
@@ -125,7 +125,7 @@ namespace GGS {
       this->_area = area;
     }
 
-    const GGS::Core::Service::Area Service::area() const
+    const P1::Core::Service::Area Service::area() const
     {
       return this->_area;
     }
@@ -180,11 +180,11 @@ namespace GGS {
     QString Service::areaString() const
     {
       switch(this->_area){
-       case GGS::Core::Service::Pts:
+       case P1::Core::Service::Pts:
         return QString("pts");
-       case GGS::Core::Service::Tst:
+       case P1::Core::Service::Tst:
         return QString("tst");
-       case GGS::Core::Service::Live: // не с проста пропущен break
+       case P1::Core::Service::Live: // не с проста пропущен break
        default:
          return QString("live");
       };

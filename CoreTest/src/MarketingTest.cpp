@@ -7,22 +7,22 @@
 
 #include <gtest/gtest.h>
 
-using namespace GGS::Core;
+using namespace P1::Core;
 
 class MarketingTest : public ::testing::Test 
 {
 public:
   void SetUp() {
-    spy = new QSignalSpy(Marketing::instance(), SIGNAL(marketingRequest(GGS::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
-    spyOnceByService = new QSignalSpy(Marketing::instance(), SIGNAL(sendOnceByServiceMarketingRequest(GGS::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
-    spyOnceByTarget = new QSignalSpy(Marketing::instance(), SIGNAL(sendOnceMarketingRequest(GGS::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
+    spy = new QSignalSpy(Marketing::instance(), SIGNAL(marketingRequest(P1::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
+    spyOnceByService = new QSignalSpy(Marketing::instance(), SIGNAL(sendOnceByServiceMarketingRequest(P1::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
+    spyOnceByTarget = new QSignalSpy(Marketing::instance(), SIGNAL(sendOnceMarketingRequest(P1::Core::Marketing::MarketingTargets, const QString&, QVariantMap)));
     this->nullId = "0";
   }
 
   void exec() {
     QEventLoop loop;
     TestEventLoopFinisher killer(&loop, 5000, 1);
-    QObject::connect(Marketing::instance(), SIGNAL(marketingRequest(GGS::Core::Marketing::MarketingTargets, const QString&, QVariantMap)),
+    QObject::connect(Marketing::instance(), SIGNAL(marketingRequest(P1::Core::Marketing::MarketingTargets, const QString&, QVariantMap)),
       &killer, SLOT(terminateLoop()));
 
     ASSERT_FALSE(killer.isKilledByTimeout());
@@ -47,7 +47,7 @@ TEST_F(MarketingTest, allParamTest)
 
   ASSERT_EQ(1, spy->count());
   QList<QVariant> args = spy->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -65,7 +65,7 @@ TEST_F(MarketingTest, nothing)
 
   ASSERT_EQ(1, spy->count());
   QList<QVariant> args = spy->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
   
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -83,7 +83,7 @@ TEST_F(MarketingTest, sendWithId)
 
   ASSERT_EQ(1, spy->count());
   QList<QVariant> args = spy->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -104,7 +104,7 @@ TEST_F(MarketingTest, sendWithParams)
 
   ASSERT_EQ(1, spy->count());
   QList<QVariant> args = spy->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -126,7 +126,7 @@ TEST_F(MarketingTest, allParamTestWithNullId)
 
   ASSERT_EQ(1, spy->count());
   QList<QVariant> args = spy->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -148,7 +148,7 @@ TEST_F(MarketingTest, allParamTestSendOnce)
 
   ASSERT_EQ(1, spyOnceByTarget->count());
   QList<QVariant> args = spyOnceByTarget->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -166,7 +166,7 @@ TEST_F(MarketingTest, nothingSendOnce)
 
   ASSERT_EQ(1, spyOnceByTarget->count());
   QList<QVariant> args = spyOnceByTarget->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -184,7 +184,7 @@ TEST_F(MarketingTest, sendWithIdSendOnce)
 
   ASSERT_EQ(1, spyOnceByTarget->count());
   QList<QVariant> args = spyOnceByTarget->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -205,7 +205,7 @@ TEST_F(MarketingTest, sendWithParamsSendOnce)
 
   ASSERT_EQ(1, spyOnceByTarget->count());
   QList<QVariant> args = spyOnceByTarget->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -227,7 +227,7 @@ TEST_F(MarketingTest, allParamTestWithNullIdSendOnce)
 
   ASSERT_EQ(1, spyOnceByTarget->count());
   QList<QVariant> args = spyOnceByTarget->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(nullId, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -245,7 +245,7 @@ TEST_F(MarketingTest, sendWithIdSendOnceByService)
 
   ASSERT_EQ(1, spyOnceByService->count());
   QList<QVariant> args = spyOnceByService->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();
@@ -267,7 +267,7 @@ TEST_F(MarketingTest, sendWithParamsSendOnceByService)
 
   ASSERT_EQ(1, spyOnceByService->count());
   QList<QVariant> args = spyOnceByService->takeFirst();
-  ASSERT_EQ(target, args.at(0).value<GGS::Core::Marketing::MarketingTargets>());
+  ASSERT_EQ(target, args.at(0).value<P1::Core::Marketing::MarketingTargets>());
   ASSERT_EQ(id, args.at(1).toString());
 
   QVariantMap paramsResult = args.at(2).value<QVariantMap>();

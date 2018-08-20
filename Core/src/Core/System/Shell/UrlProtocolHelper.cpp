@@ -4,7 +4,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 
-namespace GGS{
+namespace P1 {
   namespace Core {
     namespace System {
       namespace Shell {

@@ -1,5 +1,4 @@
-﻿#ifndef _GGS_CORE_SERVICE_H
-#define _GGS_CORE_SERVICE_H
+﻿#pragma once
 
 #include <Core/core_global.h>
 
@@ -8,13 +7,13 @@
 #include <QtCore/QString>
 #include <QtCore/QUrl>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     class CORE_EXPORT Service : public QObject
     {
       Q_OBJECT
     public:
-      Q_ENUMS(GGS::Core::Service::Area);
+      Q_ENUMS(P1::Core::Service::Area);
 
       enum Area {
         Live = 0,
@@ -230,8 +229,6 @@ namespace GGS {
   }
 }
 
-Q_DECLARE_METATYPE(GGS::Core::Service);
-Q_DECLARE_METATYPE(GGS::Core::Service*);
-Q_DECLARE_METATYPE(const GGS::Core::Service*);
-#endif //_GGS_CORE_SERVICE_H
-
+Q_DECLARE_METATYPE(P1::Core::Service);
+Q_DECLARE_METATYPE(P1::Core::Service*);
+Q_DECLARE_METATYPE(const P1::Core::Service*);

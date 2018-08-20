@@ -1,8 +1,8 @@
 ﻿#include <Core/UI/MessageAdapter.h>
 
-namespace GGS{
-  namespace Core{
-    namespace UI{
+namespace P1 {
+  namespace Core {
+    namespace UI {
 
       MessageAdapter::MessageAdapter(QObject *parent)
         : QObject(parent)

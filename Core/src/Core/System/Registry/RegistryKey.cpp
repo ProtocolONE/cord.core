@@ -2,7 +2,7 @@
 
 #include <QtCore/QDebug>
 
-namespace GGS{
+namespace P1 {
   namespace Core {
     namespace System {
       namespace Registry {

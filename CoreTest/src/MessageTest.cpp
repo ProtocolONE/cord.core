@@ -13,7 +13,7 @@
 #define testString "sdfjnawkfjnaekjrfkejnrfkjenrfkjnekrn"
 #define testString2 "sergeergergergadsaaaaaaaaaaaaaaaaaaaaaaa"
 
-using namespace GGS::Core::UI;
+using namespace P1::Core::UI;
 
 TEST(MessageTest, SetterGetterTest)
 {

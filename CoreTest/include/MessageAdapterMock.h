@@ -7,7 +7,7 @@
 #include <QtCore/QMap>
 #include <QtCore/QPair>
 
-using namespace GGS::Core::UI;
+using namespace P1::Core::UI;
 
 class FakeClass : public QObject
 {
@@ -34,8 +34,8 @@ public slots:
   void show(
     const QString& title, 
     const QString& text, 
-    GGS::Core::UI::Message::StandardButtons buttons, 
-    GGS::Core::UI::Message::Icon icon, 
+    P1::Core::UI::Message::StandardButtons buttons,
+    P1::Core::UI::Message::Icon icon,
     int messageId, 
     QObject* reciever, 
     const char* bindFunc);

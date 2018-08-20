@@ -1,11 +1,10 @@
-#ifndef _GGS_CORE_CORE_H
-#define _GGS_CORE_CORE_H
+#pragma once
 
 #include <Core/core_global.h>
 #include <QObject>
 #include <QMap>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     class CORE_EXPORT Locator
     {
@@ -22,4 +21,3 @@ namespace GGS {
   }
 }
 
-#endif // _GGS_CORE_CORE_H

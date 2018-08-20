@@ -1,17 +1,9 @@
-#include <Core/Service>
-#include <Core/UI/Message>
-#include <Core/Marketing.h>
+#ifndef CORE_STATIC_LIB
+
+#include <Core/RegisterTypes.h>
 
 #include <Windows.h>
 #include <QtCore/QMetaType>
-
-void registerTypes()
-{
-  qRegisterMetaType<GGS::Core::Service>("GGS::Core::Service");
-  qRegisterMetaType<GGS::Core::UI::Message::StandardButtons>("GGS::Core::UI::Message::StandardButtons");
-  qRegisterMetaType<GGS::Core::UI::Message::Icon>("GGS::Core::UI::Message::Icon");
-  qRegisterMetaType<GGS::Core::Marketing::MarketingTargets>("GGS::Core::Marketing::MarketingTargets");
-}
 
 BOOL WINAPI DllMain(
   HINSTANCE hinstDLL,  // handle to DLL module
@@ -24,7 +16,7 @@ BOOL WINAPI DllMain(
   case DLL_PROCESS_ATTACH:
     // Initialize once for each new process.
     // Return FALSE to fail DLL load.
-    registerTypes();
+    P1::Core::registerTypes();
     break;
 
   case DLL_THREAD_ATTACH:
@@ -41,3 +33,5 @@ BOOL WINAPI DllMain(
   }
   return TRUE;  // Successful DLL_PROCESS_ATTACH.
 }
+
+#endif

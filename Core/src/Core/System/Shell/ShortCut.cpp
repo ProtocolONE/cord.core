@@ -3,7 +3,7 @@
 #include <QtCore/QScopedPointer>
 #include <QtCore/QDebug>
 
-#include <windows.h>
+#include <Windows.h>
 #include <string>
 
 #include <atlbase.h> 
@@ -12,7 +12,7 @@
 
 #define CHECK_HRESULT(f) { HRESULT res = f; if (res != S_OK) { qWarning() << __LINE__ << __FILE__ << "HRESULT: " << res; return false; } }
 
-namespace GGS{
+namespace P1 {
   namespace Core {
     namespace System {
       namespace Shell {
@@ -69,7 +69,7 @@ namespace GGS{
           this->_cmd = cmd;
         }
 
-        GGS::Core::System::Shell::ShortCut::ShowWindowCommand ShortCut::showCmd() const
+        P1::Core::System::Shell::ShortCut::ShowWindowCommand ShortCut::showCmd() const
         {
           return this->_cmd;
         }

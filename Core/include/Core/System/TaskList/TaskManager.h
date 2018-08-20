@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Core/core_global>
+#include <Core/core_global.h>
 
 #include <QtCore/QObject>
 #include <QtCore/QMap>
@@ -8,7 +8,7 @@
 
 #include <shlobj.h>
 
-namespace GGS {
+namespace P1 {
   namespace Core {
     namespace System {
       namespace TaskList {

@@ -1,13 +1,12 @@
-#ifndef _GGS_CORE_SYSTEM_REGISTRY_REGISTRYKEY_H_
-#define _GGS_CORE_SYSTEM_REGISTRY_REGISTRYKEY_H_
+#pragma once
 
-#include <Core/core_global>
+#include <Core/core_global.h>
 
 #include <QtCore/QString>
 
 #include <windows.h>
 
-namespace GGS{
+namespace P1 {
   namespace Core {
     namespace System {
       namespace Registry {
@@ -67,5 +66,3 @@ namespace GGS{
     }
   }
 }
-
-#endif // _GGS_CORE_SYSTEM_REGISTRY_REGISTRYKEY_H_
