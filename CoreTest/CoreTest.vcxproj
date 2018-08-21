@@ -101,7 +101,7 @@ xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)
       <PreprocessorDefinitions>UNICODE;WIN32;QT_CORE_LIB;QT_TESTLIB_LIB;QT_DLL;CORE_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;$(QTDIR)\include\QtTest;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level1</WarningLevel>
@@ -148,7 +148,7 @@ xcopy /Y /I /R "$(TargetDir)..\..\Core\$(ConfigurationName)\*.dll" "$(TargetDir)
       <PreprocessorDefinitions>UNICODE;WIN32;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_TESTLIB_LIB;QT_DLL;CORE_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>
       </DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(ProjectDir)..\Core\include;$(ProjectDir)..\CoreTest\include;$(QTDIR)\include\QtTest;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
