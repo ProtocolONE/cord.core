@@ -1,0 +1,17 @@
+[settings]
+os=Windows
+arch=x86
+compiler=Visual Studio
+compiler.version=15
+compiler.runtime=MD
+compiler.toolset=v141_xp
+build_type=Release
+os_build=Windows
+arch_build=x86
+
+[options]
+shared=False
+Core:shared=False
+[build_requires]
+[env]
+QTPATH=C:/QtCommercial/5.8/msvc2015_64/bin
