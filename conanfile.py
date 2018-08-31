@@ -1,17 +1,17 @@
-from conans import ConanFile, MSBuild
+from conans import ConanFile, MSBuild, VisualStudioBuildEnvironment, tools
 
+componentName = "Core"
 
 class CoreConan(ConanFile):
-    name = "Core"
+    name = componentName
 #    version = "1.0"
     license = "<Put the package license here>"
     url = "<Package recipe repository url here, for issues about the package>"
     description = "<Description of Core here>"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
-#    default_options = "shared=False"
+    default_options = "shared=False"
     generators = "visual_studio"
-#    exports_sources = "!../Core/GeneratedFiles/*","!../CoreTest/GeneratedFiles/*", "!../!build/*", "!../!obj/*", "!../.vs/*", "!../.git/*","../*"
 
     scm = {
       "type": "git",
@@ -23,25 +23,20 @@ class CoreConan(ConanFile):
         customBuildType = self.settings.get_safe("build_type")
         if self.options.shared == "False":
           customBuildType = 'Static {0}'.format(customBuildType)
-          
-        print('Custom build: ' + customBuildType)
     
         msbuild = MSBuild(self)
         msbuild.build(
-        "Core/Core.vcxproj"
-        #"Core.sln"
+        "{0}/{0}.vcxproj".format(componentName)
          , build_type = customBuildType
          , platforms={ 
             "x86" : "Win32"
             ,'x86_64' : 'x64'
           }
-          , properties={
-            "CommonArea" : "trunk"
-          }
-        )
+      )
 
     def package(self):
-        self.copy("*", dst="include", src="Core/include")
+        self.copy("*", dst="include", src="{0}/include".format(componentName))
+        self.copy("*.ts", dst="i18n", keep_path=False)
         self.copy("*.lib", dst="lib", keep_path=False)
         self.copy("*.dll", dst="bin", keep_path=False)
         self.copy("*.dylib*", dst="lib", keep_path=False)
@@ -49,4 +44,33 @@ class CoreConan(ConanFile):
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["Core"]
+      name = componentName
+      if self.settings.arch == "x86":
+        name += "x86"
+        
+      if self.settings.arch == "x86_64":
+        name += "x64"
+        
+      if self.settings.build_type == "Debug":
+        name += "d"
+
+      name += ".lib"
+      self.cpp_info.libs = [name] # The libs to link against
+      
+      
+      self.cpp_info.includedirs = ['include']  # Ordered list of include paths
+      self.cpp_info.libdirs = ['lib']  # Directories where libraries can be found
+      self.cpp_info.resdirs = ['res']  # Directories where resources, data, etc can be found
+      self.cpp_info.bindirs = ['bin']  # Directories where executables and shared libs can be found
+      self.cpp_info.defines = []  # preprocessor definitions
+      self.cpp_info.cflags = []  # pure C flags
+      self.cpp_info.cppflags = []  # C++ compilation flags
+      self.cpp_info.sharedlinkflags = []  # linker flags
+      self.cpp_info.exelinkflags = []  # linker flags
+      
+      if self.options.shared == "False":
+        self.cpp_info.defines.append("{0}_STATIC_LIB".format(componentName.upper()))
+
+      
+
+      

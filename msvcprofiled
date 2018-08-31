@@ -11,6 +11,5 @@ arch_build=x86
 
 [options]
 shared=False
-Core:shared=False
 [build_requires]
 [env]
