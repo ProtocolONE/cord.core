@@ -49,7 +49,7 @@ namespace P1 {
         AnyStartQCS = 2728, // Любой запуск qCS
         FirstSuccessAuthInQCS = 2729, // Первая авторизация в qCS
         SuccessAuthInQCS = 2730, // Авторизация в qCS
-        AnyStartQGna = 2731, // Любой запуск qGNA.
+        AnyStartLauncher = 2731, // Любой запуск Launcher.
         ProblemAfterGameStart = 2748, // Проблемы при запуске игры
         NotLikeTheGame = 2749, // Игра не понравилась - пользователь играл слишком мало
         ThettaInfo = 2750, // Информация об установке/удалению драйвера.
