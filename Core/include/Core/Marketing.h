@@ -26,7 +26,6 @@ namespace P1 {
         FinishInstallService = 39, // Инсталляция игры
         FirstRunService = 40, // Первый вход в игру
         SuccessAuthInGN = 2633, // Авторизация в Launcher
-        AnyStartLauncher = 2640, // Любой запуск Launcher.
         TooLongInstallTime = 2650, // Слишком долгая установка/закачака сервиса.
         ErrorDuringInstall = 2651, // Ошибка входе установки/закачки сервиса.
         CloseService = 2660, // Завершение работы игры.
