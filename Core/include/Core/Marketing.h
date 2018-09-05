@@ -20,13 +20,13 @@ namespace P1 {
     public:
 
       enum MarketingTarget {
-        FirstRunGna = 2596, // Первый запуск ГНА
+        FirstRunLauncher = 2596, // Первый запуск Launcher
         StartDownloadService = 37, // Начало загрузки игры
         FinishDownloadService = 38, // Окончание загрузки игры
         FinishInstallService = 39, // Инсталляция игры
         FirstRunService = 40, // Первый вход в игру
-        SuccessAuthInGN = 2633, // Авторизация в ГНА
-        AnyStartGna = 2640, // Любой запуск гна.
+        SuccessAuthInGN = 2633, // Авторизация в Launcher
+        AnyStartLauncher = 2640, // Любой запуск Launcher.
         TooLongInstallTime = 2650, // Слишком долгая установка/закачака сервиса.
         ErrorDuringInstall = 2651, // Ошибка входе установки/закачки сервиса.
         CloseService = 2660, // Завершение работы игры.
@@ -45,20 +45,11 @@ namespace P1 {
         AnnouncementClosedClicked = 2726, // в анонсе или надпоминании тыкнули в кнопку закрыть
         AnnouncementMissClicked = 2725, // в анонсе или надпоминании тыкнули вне кнопок
         AnnouncementActionClicked = 2724, // в анонсе или надпоминании тыкнули в кнопку действия
-        FirstRunQCS = 2727, // Первый запуск qCS
-        AnyStartQCS = 2728, // Любой запуск qCS
-        FirstSuccessAuthInQCS = 2729, // Первая авторизация в qCS
-        SuccessAuthInQCS = 2730, // Авторизация в qCS
         AnyStartLauncher = 2731, // Любой запуск Launcher.
         ProblemAfterGameStart = 2748, // Проблемы при запуске игры
         NotLikeTheGame = 2749, // Игра не понравилась - пользователь играл слишком мало
-        ThettaInfo = 2750, // Информация об установке/удалению драйвера.
-        ThettaConnectFail = 2754, // Не удалось подлкючиться к драйверу. Игра не запустится.
-        ThettaSendInfoFail = 2756, // Не удалось отправить данные на сервер Thetta.
         ServiceUninstalledFromOS = 2762,  // Игра удалена с помощью средств ОС (Панель Управления->Программы и компоненты)
         ServiceUninstalledFromUI = 2763, // Игра удалена с помощью нажатия кнопки "Удалить" в настройках
-        ThettaWinKernelInfo = 2794, // Информация о ядре - подпись/путь
-        ThettaPatternFound = 2766, // Сканнер нашел чит в игре и закрыл приложение 
         ApplicationSettingsChanged = 2768, // Информация о выбранных настройках приложения.
         FirstStartDownloadService = 2795, // Первое начало скачивание сервиса. Посылается один раз на событие.
       };
