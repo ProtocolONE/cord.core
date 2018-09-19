@@ -12,6 +12,5 @@ arch_build=x86
 [options]
 
 [build_requires]
-Qt/5.5.1@common/stable
 
 [env]

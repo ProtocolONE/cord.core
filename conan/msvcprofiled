@@ -13,6 +13,5 @@ build_type=Debug
 shared=False
 
 [build_requires]
-Qt/5.5.1@common/stable
 
 [env]
