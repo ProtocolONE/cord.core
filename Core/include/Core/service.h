@@ -2,7 +2,7 @@
 
 #include <Core/core_global.h>
 
-#include <QMetaType>
+#include <QtCore/QMetaType>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QUrl>

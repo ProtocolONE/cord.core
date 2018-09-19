@@ -36,7 +36,7 @@ public:
 
 TEST_F(MarketingTest, allParamTest)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("someId");
   QVariantMap params;
   params["someId1"] = "someValue1";
@@ -58,7 +58,7 @@ TEST_F(MarketingTest, allParamTest)
 
 TEST_F(MarketingTest, nothing)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   Marketing::send(target);
   
   exec();
@@ -76,7 +76,7 @@ TEST_F(MarketingTest, nothing)
 
 TEST_F(MarketingTest, sendWithId)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("someId");
   Marketing::send(target, id);
   exec();
@@ -94,7 +94,7 @@ TEST_F(MarketingTest, sendWithId)
 
 TEST_F(MarketingTest, sendWithParams)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QVariantMap params;
   params["someId1"] = "someValue1";
   params["someId2"] = "someValue2";
@@ -115,7 +115,7 @@ TEST_F(MarketingTest, sendWithParams)
 
 TEST_F(MarketingTest, allParamTestWithNullId)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("");
   QVariantMap params;
   params["someId1"] = "someValue1";
@@ -137,7 +137,7 @@ TEST_F(MarketingTest, allParamTestWithNullId)
 
 TEST_F(MarketingTest, allParamTestSendOnce)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("someId");
   QVariantMap params;
   params["someId1"] = "someValue1";
@@ -159,7 +159,7 @@ TEST_F(MarketingTest, allParamTestSendOnce)
 
 TEST_F(MarketingTest, nothingSendOnce)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   Marketing::sendOnce(target);
 
   exec();
@@ -177,7 +177,7 @@ TEST_F(MarketingTest, nothingSendOnce)
 
 TEST_F(MarketingTest, sendWithIdSendOnce)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("someId");
   Marketing::sendOnce(target, id);
   exec();
@@ -195,7 +195,7 @@ TEST_F(MarketingTest, sendWithIdSendOnce)
 
 TEST_F(MarketingTest, sendWithParamsSendOnce)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QVariantMap params;
   params["someId1"] = "someValue1";
   params["someId2"] = "someValue2";
@@ -216,7 +216,7 @@ TEST_F(MarketingTest, sendWithParamsSendOnce)
 
 TEST_F(MarketingTest, allParamTestWithNullIdSendOnce)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("");
   QVariantMap params;
   params["someId1"] = "someValue1";
@@ -238,7 +238,7 @@ TEST_F(MarketingTest, allParamTestWithNullIdSendOnce)
 
 TEST_F(MarketingTest, sendWithIdSendOnceByService)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QString id("someId");
   Marketing::sendOnceByService(target, id);
   exec();
@@ -256,7 +256,7 @@ TEST_F(MarketingTest, sendWithIdSendOnceByService)
 
 TEST_F(MarketingTest, sendWithParamsSendOnceByService)
 {
-  Marketing::MarketingTargets target = Marketing::AnyStartGna;
+  Marketing::MarketingTargets target = Marketing::AnyStartLauncher;
   QVariantMap params;
   QString id("someId");
   params["someId1"] = "someValue1";

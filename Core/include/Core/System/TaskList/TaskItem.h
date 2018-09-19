@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Core/core_global.h>
-#include <QObject>
+#include <QtCore/QObject>
 
 namespace P1 {
   namespace Core {

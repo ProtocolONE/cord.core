@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Core/core_global.h>
-#include <QObject>
-#include <QMap>
+#include <QtCore/QObject>
+#include <QtCore/QMap>
 
 namespace P1 {
   namespace Core {

@@ -1,4 +1,5 @@
 from conans import ConanFile, MSBuild, VisualStudioBuildEnvironment, tools
+import re
 
 componentName = "Core"
 
@@ -11,8 +12,10 @@ class CoreConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
-    generators = "visual_studio"
-
+    generators = "visual_studio_multi"
+    requires = "Qt/5.5.1@common/stable"
+    build_requires = "Qt/5.5.1@common/stable"
+    
     scm = {
       "type": "git",
       "url": "auto",
@@ -20,19 +23,45 @@ class CoreConan(ConanFile):
     }
     
     def build(self):
-        customBuildType = self.settings.get_safe("build_type")
-        if self.options.shared == "False":
-          customBuildType = 'Static {0}'.format(customBuildType)
-    
-        msbuild = MSBuild(self)
-        msbuild.build(
-        "{0}/{0}.vcxproj".format(componentName)
-         , build_type = customBuildType
-         , platforms={ 
-            "x86" : "Win32"
-            ,'x86_64' : 'x64'
-          }
-      )
+      # for attr in dir(self):
+        # self.output.warn("obj.%s = %r" % (attr, getattr(self, attr)))
+
+      # for attr in dir(self.build_requires):
+        # self.output.warn("obj.%s = %r" % (attr, getattr(self.build_requires, attr)))
+        
+      # for attr in dir(self.info):
+        # self.output.warn("obj.%s = %r" % (attr, getattr(self.info, attr)))
+
+      # for attr in dir(self.info.requires):
+        # self.output.warn("self.info.requires.%s = %r" % (attr, getattr(self.info.requires, attr)))
+
+      # qt = self.info.requires["Qt"]
+      
+      # for attr in dir(qt):
+        # self.output.warn("qt.%s = %r" % (attr, getattr(qt, attr)))
+
+#      self.output.warn(self.requires["Qt"].version)
+      content = tools.load("Core\\Core.vcxproj")
+      content = re.sub(r'Qt5Version_x0020_Win32=\".+?\"', r'Qt5Version_x0020_Win32="conan-{0}"'.format(self.info.requires["Qt"].full_package_id), content)
+      #self.output.warn(content)
+        
+      tools.save("Core/Core.vcxproj", content)
+      
+      customBuildType = self.settings.get_safe("build_type")
+      if self.options.shared == "False":
+        customBuildType = 'Static {0}'.format(customBuildType)
+        
+        
+  
+      msbuild = MSBuild(self)
+      msbuild.build(
+      "{0}/{0}.vcxproj".format(componentName)
+       , build_type = customBuildType
+       , platforms={ 
+          "x86" : "Win32"
+          ,'x86_64' : 'x64'
+        }
+    )
 
     def package(self):
         self.copy("*", dst="include", src="{0}/include".format(componentName))
@@ -42,6 +71,9 @@ class CoreConan(ConanFile):
         self.copy("*.dylib*", dst="lib", keep_path=False)
         self.copy("*.so", dst="lib", keep_path=False)
         self.copy("*.a", dst="lib", keep_path=False)
+
+    #def imports(self):        
+       #self.copy("*.dll", "Core/!build/", "bin")
 
     def package_info(self):
       name = componentName

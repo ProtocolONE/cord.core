@@ -1,8 +1,8 @@
 #include <Core/UI/Message.h>
 #include <Core/UI/MessageAdapter.h>
-#include <QEventLoop>
-#include <QDebug>
-#include <QMutex>
+#include <QtCore/QEventLoop>
+#include <QtCore/QDebug>
+#include <QtCore/QMutex>
 
 namespace P1 {
   namespace Core {
