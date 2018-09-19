@@ -23,40 +23,20 @@ class CoreConan(ConanFile):
     }
     
     def build(self):
-      # for attr in dir(self):
-        # self.output.warn("obj.%s = %r" % (attr, getattr(self, attr)))
-
-      # for attr in dir(self.build_requires):
-        # self.output.warn("obj.%s = %r" % (attr, getattr(self.build_requires, attr)))
-        
-      # for attr in dir(self.info):
-        # self.output.warn("obj.%s = %r" % (attr, getattr(self.info, attr)))
-
-      # for attr in dir(self.info.requires):
-        # self.output.warn("self.info.requires.%s = %r" % (attr, getattr(self.info.requires, attr)))
-
-      # qt = self.info.requires["Qt"]
-      
-      # for attr in dir(qt):
-        # self.output.warn("qt.%s = %r" % (attr, getattr(qt, attr)))
-
-#      self.output.warn(self.requires["Qt"].version)
-      content = tools.load("Core\\Core.vcxproj")
-      content = re.sub(r'Qt5Version_x0020_Win32=\".+?\"', r'Qt5Version_x0020_Win32="conan-{0}"'.format(self.info.requires["Qt"].full_package_id), content)
-      #self.output.warn(content)
-        
-      tools.save("Core/Core.vcxproj", content)
+      self.output.warn('Using Qt: conan-{0}'.format(self.info.requires["Qt"].full_package_id))
+      # content = tools.load("Core\\Core.vcxproj")
+      # content = re.sub(r'Qt5Version_x0020_Win32=\".+?\"', r'Qt5Version_x0020_Win32="conan-{0}"'.format(self.info.requires["Qt"].full_package_id), content)
+      # tools.save("Core/Core.vcxproj", content)
       
       customBuildType = self.settings.get_safe("build_type")
       if self.options.shared == "False":
         customBuildType = 'Static {0}'.format(customBuildType)
-        
-        
   
       msbuild = MSBuild(self)
       msbuild.build(
       "{0}/{0}.vcxproj".format(componentName)
        , build_type = customBuildType
+       , toolset = self.settings.compiler.toolset
        , platforms={ 
           "x86" : "Win32"
           ,'x86_64' : 'x64'
