@@ -1,4 +1,5 @@
 from conans import ConanFile, MSBuild, VisualStudioBuildEnvironment, tools
+from conans.util.files import tmp_file
 import re
 
 componentName = "Core"
@@ -27,21 +28,40 @@ class CoreConan(ConanFile):
       # content = tools.load("Core\\Core.vcxproj")
       # content = re.sub(r'Qt5Version_x0020_Win32=\".+?\"', r'Qt5Version_x0020_Win32="conan-{0}"'.format(self.info.requires["Qt"].full_package_id), content)
       # tools.save("Core/Core.vcxproj", content)
-      
-      customBuildType = self.settings.get_safe("build_type")
+
       if self.options.shared == "False":
-        customBuildType = 'Static {0}'.format(customBuildType)
-  
-      msbuild = MSBuild(self)
-      msbuild.build(
-      "{0}/{0}.vcxproj".format(componentName)
-       , build_type = customBuildType
-       , toolset = self.settings.compiler.toolset
-       , platforms={ 
-          "x86" : "Win32"
-          ,'x86_64' : 'x64'
-        }
-    )
+        tools.replace_in_file("{0}/{0}.vcxproj".format(componentName), "<ConfigurationType>DynamicLibrary</ConfigurationType>", "<ConfigurationType>StaticLibrary</ConfigurationType>")
+
+      libMap = {
+        "x86" : "MachineX86"
+        ,'x86_64' : 'MachineX64'
+      }
+
+      arch = self.settings.get_safe("arch")
+      
+      props_file_contents = """<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <Lib>
+      <TargetMachine>{0}</TargetMachine>
+    </Lib>
+  </ItemDefinitionGroup>
+</Project>""".format(libMap[arch])
+
+      with tmp_file(props_file_contents) as props_file_path:
+        msbuild = MSBuild(self)
+        msbuild.build(
+        "{0}/{0}.vcxproj".format(componentName)
+         , toolset = self.settings.compiler.toolset
+         , platforms={ 
+            "x86" : "Win32"
+            ,'x86_64' : 'x64'
+          }
+          ,
+          properties = {
+            "ForceImportBeforeCppTargets" : props_file_path
+          }
+        )
 
     def package(self):
         self.copy("*", dst="include", src="{0}/include".format(componentName))
