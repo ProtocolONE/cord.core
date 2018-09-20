@@ -32,21 +32,36 @@ class CoreConan(ConanFile):
       if self.options.shared == "False":
         tools.replace_in_file("{0}/{0}.vcxproj".format(componentName), "<ConfigurationType>DynamicLibrary</ConfigurationType>", "<ConfigurationType>StaticLibrary</ConfigurationType>")
 
-      libMap = {
+      libMachine = {
         "x86" : "MachineX86"
         ,'x86_64' : 'MachineX64'
-      }
-
-      arch = self.settings.get_safe("arch")
+      }.get(self.settings.get_safe("arch"), "")
       
+      libMachine_node = "<Lib>" \
+                     "<TargetMachine>{}</TargetMachine>" \
+                     "</Lib>".format(libMachine) if libMachine else ""
+                     
+      runtime_library = {"MT": "MultiThreaded",
+                   "MTd": "MultiThreadedDebug",
+                   "MD": "MultiThreadedDLL",
+                   "MDd": "MultiThreadedDebugDLL"}.get(self.settings.get_safe("compiler.runtime"), "")
+
+      runtime_node = "<RuntimeLibrary>" \
+                     "{}" \
+                     "</RuntimeLibrary>".format(runtime_library) if runtime_library else ""
+
       props_file_contents = """<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemDefinitionGroup>
-    <Lib>
-      <TargetMachine>{0}</TargetMachine>
-    </Lib>
+    {0}
+    <ClCompile>
+      {1}
+    </ClCompile>
+    
   </ItemDefinitionGroup>
-</Project>""".format(libMap[arch])
+</Project>""".format(libMachine_node, runtime_node)
+
+
 
       with tmp_file(props_file_contents) as props_file_path:
         msbuild = MSBuild(self)
