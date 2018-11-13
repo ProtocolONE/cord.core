@@ -6,10 +6,10 @@ componentName = "Core"
 
 class CoreConan(ConanFile):
     name = componentName
-#    version = "1.0"
-    license = "<Put the package license here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of Core here>"
+    version = "1.0.0"
+    license = "Apache-2.0"
+    url = "https://github.com/ProtocolONE/cord.core"
+#    description = "<Description of Core here>"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = "shared=False"
@@ -24,11 +24,6 @@ class CoreConan(ConanFile):
     }
     
     def build(self):
-      self.output.warn('Using Qt: conan-{0}'.format(self.info.requires["Qt"].full_package_id))
-      # content = tools.load("Core\\Core.vcxproj")
-      # content = re.sub(r'Qt5Version_x0020_Win32=\".+?\"', r'Qt5Version_x0020_Win32="conan-{0}"'.format(self.info.requires["Qt"].full_package_id), content)
-      # tools.save("Core/Core.vcxproj", content)
-
       if self.options.shared == "False":
         tools.replace_in_file("{0}/{0}.vcxproj".format(componentName), "<ConfigurationType>DynamicLibrary</ConfigurationType>", "<ConfigurationType>StaticLibrary</ConfigurationType>")
 
